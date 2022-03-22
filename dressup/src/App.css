@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Comforter&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@700;900&family=Shizuru&family=Smooch&display=swap");
+
+:root {
+  --color-primary: #5ec576;
+  --color-secondary: #ffcb03;
+  --color-tertiary: #ff585f;
+  --color-primary-darker: #4bbb7d;
+  --color-secondary-darker: #ffbb00;
+  --color-tertiary-darker: #fd424b;
+  --color-primary-opacity: #5ec5763a;
+  --color-secondary-opacity: #ffcd0331;
+  --color-tertiary-opacity: #ff58602d;
+  --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+  --background-white: rgba(255, 255, 255, 0.95);
+  --color-white: #f3f3f3;
+  --darker-grey: #444;
+  --light-grey: #333;
+  --lighter-grey: #222;
+  --footer-color: #37383d;
+  --hover-light-grey: #eee;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-white);
+}

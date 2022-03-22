@@ -1,0 +1,21 @@
+.trend-heading {
+  margin-top: 10rem;
+  text-align: center;
+  font-size: 5rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--light-grey);
+  width: 300px;
+  position: relative;
+  left: 600px;
+}
+
+.brand-heading {
+  margin-top: 10rem;
+  text-align: center;
+  font-size: 5rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--light-grey);
+  width: 300px;
+  position: relative;
+  left: 600px;
+}

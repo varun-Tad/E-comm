@@ -1,0 +1,39 @@
+.main-navbar {
+  display: flex;
+  background-color: var(--background-white);
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+}
+
+.left-nav {
+  width: 20rem;
+  margin-left: 1rem;
+}
+
+.left-nav img {
+  width: 100%;
+}
+
+.right-nav {
+  display: flex;
+  margin-right: 3rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .left-nav {
+    width: 5rem;
+    margin-left: 0.5rem;
+  }
+
+  .right-nav {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,14 @@
+.inp-btn {
+  width: 40rem;
+  height: 4rem;
+  background-color: var(--color-primary-opacity);
+  margin-right: 3rem;
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .inp-btn {
+    width: 20rem;
+    margin-right: 1rem;
+  }
+}
