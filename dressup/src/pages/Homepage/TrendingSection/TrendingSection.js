@@ -9,7 +9,7 @@ function TrendingSection() {
     <div className="trending-section">
       <div className="card">
         <div className="image-container">
-          <img class="image" src={img4} alt="apparel"></img>
+          <img className="image" src={img4} alt="apparel"></img>
         </div>
         <p>WATCHES</p>
         <div class="link-container">
@@ -23,7 +23,7 @@ function TrendingSection() {
           <img class="image" src={img5} alt="apparel"></img>
         </div>
         <p>SHOES</p>
-        <div class="link-container">
+        <div className="link-container">
           <PrimaryNavbutton text={"Buy now"}></PrimaryNavbutton>
           <PrimaryNavbutton text={"Bookmark"}></PrimaryNavbutton>
         </div>
@@ -34,7 +34,7 @@ function TrendingSection() {
           <img class="image" src={img3} alt="apparel"></img>
         </div>
         <p>HANDBAGS</p>
-        <div class="link-container">
+        <div className="link-container">
           <PrimaryNavbutton text={"Buy now"}></PrimaryNavbutton>
           <PrimaryNavbutton text={"Bookmark"}></PrimaryNavbutton>
         </div>
