@@ -9,7 +9,7 @@ import {
   Footer,
 } from "./index";
 
-function Homepage() {
+const Homepage = () => {
   return (
     <div>
       <Navbar></Navbar>
@@ -22,6 +22,6 @@ function Homepage() {
       <Footer></Footer>
     </div>
   );
-}
+};
 
 export default Homepage;

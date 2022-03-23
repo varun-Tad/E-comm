@@ -4,7 +4,7 @@ import "./HeroSection.css";
 import HeroSectionbutton from "../../../components/Buttons/HeroSectionbutton";
 import img2 from "../../../images/Red-kurta.webp";
 
-function HeroSection() {
+const HeroSection = () => {
   return (
     <div className="main">
       <div className="main-text">
@@ -20,6 +20,6 @@ function HeroSection() {
       </div>
     </div>
   );
-}
+};
 
 export default HeroSection;

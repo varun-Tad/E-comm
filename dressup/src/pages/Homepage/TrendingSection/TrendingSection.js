@@ -6,7 +6,7 @@ import img5 from "../../../images/sport-shoes.webp";
 
 import Card from "../../../components/Cards/Card";
 
-function TrendingSection() {
+const TrendingSection = () => {
   return (
     <div className="trending-section">
       <Card title={"WATCHES"} img={img4} />
@@ -14,6 +14,6 @@ function TrendingSection() {
       <Card title={"HANDBAGS"} img={img3} />
     </div>
   );
-}
+};
 
 export default TrendingSection;
