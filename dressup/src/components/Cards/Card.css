@@ -1,0 +1,18 @@
+.card {
+  transition: 0.3s;
+  background-color: var(--color-white);
+}
+
+.card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.card p {
+  text-align: center;
+  font-size: 3rem;
+  margin-right: 1rem;
+  color: var(--light-grey);
+  font-family: "Caveat", cursive;
+  font-weight: 900;
+}

@@ -1,0 +1,50 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: var(--footer-color);
+  font-size: 1.6rem;
+  color: var(--hover-light-grey);
+  margin-top: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.shop-by {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  cursor: pointer;
+}
+
+.shop-by p:hover {
+  opacity: 0.7;
+}
+
+.dress-up {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  cursor: pointer;
+}
+
+.dress-up p:hover {
+  opacity: 0.7;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  cursor: pointer;
+}
+
+.about-us p:hover {
+  opacity: 0.7;
+}
+
+.shop-by-heading,
+.about-us-heading,
+.dress-up-heading {
+  color: var(--color-primary-darker);
+}

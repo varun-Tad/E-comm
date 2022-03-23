@@ -1,0 +1,17 @@
+.btn-secondary {
+  border-radius: 3rem;
+  background-color: var(--color-primary);
+  color: var(--lighter-grey);
+  padding: 0.8rem 2.5rem;
+  margin-right: 4rem;
+  margin-top: 1.5rem;
+  font-weight: 800;
+}
+
+.btn-secondary:active,
+.btn-secondary:hover {
+  color: inherit;
+  background-color: var(--color-primary-darker);
+  color: var(--light-grey);
+  opacity: 1;
+}
