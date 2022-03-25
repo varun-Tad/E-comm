@@ -7,19 +7,21 @@ import {
   TrendingSection,
   Topbrandssection,
   Footer,
-} from "./index";
+} from "../Homepage/index";
 
 const Homepage = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Categories></Categories>
-      <HeroSection></HeroSection>
+      <Navbar />
+      <Categories />
+      <HeroSection />
       <h1 class="trend-heading">Trending</h1>
-      <TrendingSection></TrendingSection>
+      <TrendingSection />
       <h1 class="brand-heading">Explore Top Brands</h1>
-      <Topbrandssection></Topbrandssection>
-      <Footer></Footer>
+      <Topbrandssection />
+      <div className="footer-sec">
+        <Footer />
+      </div>
     </div>
   );
 };

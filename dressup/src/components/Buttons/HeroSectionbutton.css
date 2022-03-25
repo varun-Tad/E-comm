@@ -5,3 +5,8 @@
 .main-btn span {
   font-size: 2rem;
 }
+
+.btn-link {
+  text-decoration: none;
+  color: var(--light-grey);
+}

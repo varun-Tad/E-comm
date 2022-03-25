@@ -3,7 +3,7 @@ import Categories from "../../components/Categories/Categories";
 import HeroSection from "./HeroSection/HeroSection";
 import TrendingSection from "./TrendingSection/TrendingSection";
 import Topbrandssection from "./TopBrandsSection/Topbrandssection";
-import Footer from "./Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 import img6 from "../../images/nike.jpeg";
 import img7 from "../../images/levis.png";
 import img8 from "../../images/Hm.png";
