@@ -11,7 +11,7 @@ import {
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="homePageBody">
       <Navbar />
       <Categories />
       <HeroSection />
