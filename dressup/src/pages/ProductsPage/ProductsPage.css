@@ -1,0 +1,11 @@
+.prod-land {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-top: 12rem;
+  height: 100vh;
+  column-gap: 1rem;
+}
+
+.footer-sectio {
+  margin-top: 120rem;
+}

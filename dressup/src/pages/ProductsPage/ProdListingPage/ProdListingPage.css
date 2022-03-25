@@ -1,0 +1,7 @@
+.card-vessel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20rem;
+  row-gap: 10rem;
+}

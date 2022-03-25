@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Comforter&family=Nunito:wght@400;700;800&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@700;900&family=Shizuru&family=Smooch&display=swap");
+
+.filter-section {
+  background-color: var(--color-primary-darker);
+  font-family: "Nunito", sans-serif;
+}
+
+.filter-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2rem 0 2rem 2rem;
+  color: var(--light-grey);
+  align-items: center;
+}
+
+.border {
+  border-top: 2px solid var(--light-grey);
+  margin: 2rem 2rem 2rem 1rem;
+}
+
+.filter-header h3 {
+  font-size: 30px;
+}
+
+.filter-header h4 {
+  cursor: pointer;
+}
+
+.filter-header h4:hover {
+  color: var(--color-beige);
+}
+
+.gender-filter {
+  display: grid;
+  row-gap: 2px;
+  font-weight: 600;
+}
+
+.gender-filter-list,
+.sort-by-list,
+.category-list,
+.ratings-list {
+  list-style-type: none;
+  margin-right: 2px;
+  position: relative;
+  right: 30px;
+}
+
+.gender-filter-list p,
+.sort-by-list p,
+.category-list p,
+.ratings-list p {
+  font-weight: 900;
+}
+
+.gender-filter-list li,
+.sort-by-list li,
+.category-list li,
+.ratings-list li {
+  margin-top: 7px;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin-left: 30px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+.priceRange-header {
+  font-weight: 900;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
