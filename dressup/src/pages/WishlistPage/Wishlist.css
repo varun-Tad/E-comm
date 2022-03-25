@@ -1,0 +1,17 @@
+.wishlist-container {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 4rem;
+}
+
+h1 {
+  margin-left: 60rem;
+  margin-top: 19rem;
+  color: var(--color-primary-darker);
+}
+
+.footer-sec {
+  margin-top: 5rem;
+}

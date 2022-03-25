@@ -14,7 +14,7 @@ function ProdListingCard(props) {
         <div class="card-text-contain">
           <h4>
             U.S. Polo Assn.
-            <FaHeart className=".heart"></FaHeart>
+            <FaHeart className="heart"></FaHeart>
           </h4>
           <p>
             ₹ 2000 <span>₹3999</span>(40% OFF)
