@@ -6,7 +6,7 @@ const ProdListingPage = () => {
   return (
     <div className="card-vessel">
       {ProductsPageData.map((item) => {
-        return <ProdListingCard prodData={item}></ProdListingCard>;
+        return <ProdListingCard prodData={item.id}></ProdListingCard>;
       })}
     </div>
   );
