@@ -1,3 +1,8 @@
+import img1 from "../../images/jeans.jpeg";
+import img2 from "../../images/denim-jeans.jpeg";
+import img3 from "../../images/top.jpeg";
+import img4 from "../../images/jeans-two.jpeg";
+
 export const ProductsPageData = [
   {
     id: 1,
