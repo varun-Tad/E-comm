@@ -10,7 +10,7 @@ import {
 
 function ProductsPage() {
   return (
-    <div>
+    <div className="productPageBody">
       <Navbar />
 
       <section className="prod-land">
