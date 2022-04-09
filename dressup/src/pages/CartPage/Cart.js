@@ -5,7 +5,7 @@ function Cart() {
   return (
     <div>
       <Navbar />
-      <h1 class="cart-heading">MY CART (3)</h1>
+      <h1 className="cart-heading">MY CART (3)</h1>
       <div className="main-container">
         <div className="purchased-card">
           <CartDetails />
