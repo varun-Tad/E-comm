@@ -15,15 +15,13 @@ const ProdListingPage = () => {
   const { state } = useProduct();
   console.log("state", state);
   const sortedProducts = sortProductList(state.sortOrder, ProductsPageData);
-  console.log("sortedProducts", sortedProducts);
 
   const ratedProducts = sortRatingList(state.rating, sortedProducts);
 
   const checkBoxProducts = sortingCatgeories(state.categories, ratedProducts);
-  console.log("checkboxProducts", checkBoxProducts);
 
   const RangedProducts = sortPriceRange(state.theValue, checkBoxProducts);
-  console.log("RangedProducts", RangedProducts);
+
   return (
     <div className="card-vessel">
       {RangedProducts.map((item) => {
