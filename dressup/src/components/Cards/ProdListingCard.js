@@ -6,28 +6,30 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function ProdListingCard(props) {
   return (
-    <div class="card-content">
-      <div class="image-contain">
+    <div className="card-content">
+      <div className="image-contain">
         <img src={props.prodData.imgSrc} alt="Jeans"></img>
       </div>
-      <div class="card-wrap">
-        <div class="card-text-contain">
+      <div className="card-wrap">
+        <div className="card-text-contain">
           <h4>
-            U.S. Polo Assn.
+            {props.prodData.brand}
             <FaHeart className="heart"></FaHeart>
           </h4>
           <p>
-            ₹ 2000 <span>₹3999</span>(40% OFF)
+            ₹ {props.prodData.price.discountPrice}{" "}
+            <span>₹{props.prodData.price.actualPrice}</span>(
+            {props.prodData.price.discount} OFF)
           </p>
-          <p class="rate">
-            3 <FaStar className="star"></FaStar>| 5
+          <p className="rate">
+            {props.prodData.rating} <FaStar className="star"></FaStar>| 5
           </p>
         </div>
-        <div class="button-text-contain">
+        <div className="button-text-contain">
           <button type="button" class="btn btn-success btns btn-one">
             Buy Now
           </button>
-          <button type="button" class="btn btn-success btns btn-two">
+          <button type="button" className="btn btn-success btns btn-two">
             <FaShoppingCart></FaShoppingCart> Add to Cart
           </button>
         </div>

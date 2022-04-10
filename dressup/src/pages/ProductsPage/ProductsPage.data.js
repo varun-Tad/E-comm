@@ -2,11 +2,16 @@ import img1 from "../../images/jeans.jpeg";
 import img2 from "../../images/denim-jeans.jpeg";
 import img3 from "../../images/top.jpeg";
 import img4 from "../../images/jeans-two.jpeg";
+import img5 from "../../images/women-watch.jpeg";
+import img6 from "../../images/mens-watchOne.jpeg";
+import img7 from "../../images/MensWatch.webp";
+import img8 from "../../images/MensShirtTwo.webp";
+import img9 from "../../images/MensShirtThree.webp";
 
 export const ProductsPageData = [
   {
     id: 1,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img1,
     brand: "U.S. Polo Assn",
     price: {
       actualPrice: 3999,
@@ -18,7 +23,7 @@ export const ProductsPageData = [
   },
   {
     id: 2,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img2,
     brand: "U.S. Polo Assn. Denim Co.",
     price: {
       actualPrice: 3199,
@@ -30,7 +35,7 @@ export const ProductsPageData = [
   },
   {
     id: 3,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img3,
     brand: "H&M Women Pink Collared Top",
     price: {
       actualPrice: 1000,
@@ -42,7 +47,7 @@ export const ProductsPageData = [
   },
   {
     id: 4,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img4,
     brand: "U.S. Polo Assn. Denim Co",
     price: {
       actualPrice: 3599,
@@ -54,7 +59,7 @@ export const ProductsPageData = [
   },
   {
     id: 5,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img5,
     brand: "DressBerry Women Mauve Analogue Watch",
     price: {
       actualPrice: 3099,
@@ -66,7 +71,7 @@ export const ProductsPageData = [
   },
   {
     id: 6,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img6,
     brand: "Men Brown Factory Serviced Analogue Watch",
     price: {
       actualPrice: 10995,
@@ -78,7 +83,7 @@ export const ProductsPageData = [
   },
   {
     id: 7,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img7,
     brand: "Men Red Rev T Analogue Watch",
     price: {
       actualPrice: 3999,
@@ -90,7 +95,7 @@ export const ProductsPageData = [
   },
   {
     id: 8,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img8,
     brand: "Men Teal Blue Polo Collar Cotton Pure Cotton",
     price: {
       actualPrice: 1299,
@@ -102,7 +107,7 @@ export const ProductsPageData = [
   },
   {
     id: 9,
-    imgSrc: "https://m.media-amazon.com/images/I/71HHmxdfyFL._UX500_.jpg",
+    imgSrc: img9,
     brand: "Brown Casual Shirt",
     price: {
       actualPrice: 3999,

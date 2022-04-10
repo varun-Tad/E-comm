@@ -17,9 +17,7 @@ function ProductsPage() {
         <FilterSection />
         <ProdListingPage />
       </section>
-      <div className="footer-sectio">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

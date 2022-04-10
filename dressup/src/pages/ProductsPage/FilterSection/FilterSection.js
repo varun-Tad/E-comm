@@ -1,6 +1,8 @@
+import { useProduct } from "../ProdListingPage/Product-context";
 import "./FilterSection.css";
 
 const FilterSection = () => {
+  const { state, dispatch } = useProduct();
   return (
     <aside className="filter-section">
       <div className="filter-header">
@@ -9,13 +11,16 @@ const FilterSection = () => {
       </div>
       <div className="border"></div>
       <p className="priceRange-header">PRICE RANGE</p>
-      <div class="slidecontainer">
+      <div className="slidecontainer">
         <input
           type="range"
-          min="1"
-          max="100"
+          min="500"
+          max="20000"
           className="slider"
           id="myRange"
+          onChange={(e) => {
+            dispatch({ type: "Range", value: e.target.value });
+          }}
         ></input>
       </div>
       <div className="border"></div>
@@ -27,6 +32,9 @@ const FilterSection = () => {
               type="radio"
               name="sort-by"
               value="Price low to high"
+              onChange={() =>
+                dispatch({ type: "lowToHigh", value: "lowToHigh" })
+              }
             ></input>
             <label htmlFor="Price low to high">Price low to high</label>
           </li>
@@ -35,6 +43,9 @@ const FilterSection = () => {
               type="radio"
               name="sort-by"
               value="Price high to low"
+              onChange={() =>
+                dispatch({ type: "highToLow", value: "highToLow" })
+              }
             ></input>
             <label htmlFor="Price high to low">Price high to low</label>
           </li>
@@ -46,24 +57,34 @@ const FilterSection = () => {
         <ul className="category-list">
           <p>CATEGORIES</p>
           <li>
-            <input type="checkbox" name="categories" value="Tshirts"></input>
-            <label htmlFor="Tshirts"> Tshirts</label>
+            <input
+              type="checkbox"
+              name="Pants"
+              value="Pants"
+              checked={state.categories.Pants}
+              onChange={(e) => dispatch({ type: "catg", value: e.target.name })}
+            ></input>
+            <label htmlFor="Pants"> Pants</label>
           </li>
           <li>
-            <input type="checkbox" name="categories" value="Shirts"></input>
+            <input
+              type="checkbox"
+              name="Shirts"
+              value="Shirts"
+              checked={state.categories.Shirts}
+              onChange={(e) => dispatch({ type: "catg", value: e.target.name })}
+            ></input>
             <label htmlFor="Shirts"> Shirts</label>
           </li>
           <li>
-            <input type="checkbox" name="categories" value="Watches"></input>
+            <input
+              type="checkbox"
+              name="Watches"
+              value="Watches"
+              checked={state.categories.Watches}
+              onChange={(e) => dispatch({ type: "catg", value: e.target.name })}
+            ></input>
             <label htmlFor="Watches"> Watches</label>
-          </li>
-          <li>
-            <input type="checkbox" name="categories" value="Skirts"></input>
-            <label htmlFor="Skirts">Skirts</label>
-          </li>
-          <li>
-            <input type="checkbox" name="categories" value="Shoes"></input>
-            <label htmlFor="Shoes">Shoes</label>
           </li>
         </ul>
       </div>
@@ -72,24 +93,64 @@ const FilterSection = () => {
         <ul className="ratings-list">
           <p>RATINGS</p>
           <li>
-            <input type="checkbox" name="ratings" value="5 Stars"></input>
+            <input
+              type="radio"
+              name="ratings"
+              value="5 Stars"
+              onClick={() =>
+                dispatch({ type: "FiveStars", value: "FiveStars" })
+              }
+            ></input>
             <label htmlFor="5 Star"> 5 Stars</label>
           </li>
           <li>
-            <input type="checkbox" name="ratings" value="4 Stars"></input>
+            <input
+              type="radio"
+              name="ratings"
+              value="4 Stars"
+              onClick={() =>
+                dispatch({ type: "FourStars", value: "FourStars" })
+              }
+            ></input>
             <label htmlFor="4 Stars"> 4 Stars</label>
           </li>
           <li>
-            <input type="checkbox" name="ratings" value="3 Stars"></input>
+            <input
+              type="radio"
+              name="ratings"
+              value="3 Stars"
+              onClick={() =>
+                dispatch({ type: "ThreeStars", value: "ThreeStars" })
+              }
+            ></input>
             <label htmlFor="3 Stars"> 3 stars</label>
           </li>
           <li>
-            <input type="checkbox" name="ratings" value="2 Stars"></input>
+            <input
+              type="radio"
+              name="ratings"
+              value="2 Stars"
+              onClick={() => dispatch({ type: "TwoStars", value: "TwoStars" })}
+            ></input>
             <label htmlFor="2 Stars"> 2 Stars</label>
           </li>
           <li>
-            <input type="checkbox" name="ratings" value="1 Star"></input>
+            <input
+              type="radio"
+              name="ratings"
+              value="1 Star"
+              onClick={() => dispatch({ type: "OneStar", value: "OneStar" })}
+            ></input>
             <label htmlFor="1 Star"> 1 Star</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="ratings"
+              value="All"
+              onClick={() => dispatch({ type: "All", value: "All" })}
+            ></input>
+            <label htmlFor="1 Star"> All</label>
           </li>
         </ul>
       </div>
