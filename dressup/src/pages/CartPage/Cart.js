@@ -1,16 +1,17 @@
 import "./Cart.css";
-import { Navbar, Footer, CartDetails, BillDetails } from "../CartPage/index";
+import { Navbar, Footer, BillDetails } from "../CartPage/index";
+import CartListingPage from "./CartListingPage/CartListingPage";
+import { useWishCart } from "./WishCart-context";
 
 function Cart() {
+  const { stateOne } = useWishCart();
   return (
     <div>
       <Navbar />
-      <h1 className="cart-heading">MY CART (3)</h1>
+      <h1 className="cart-heading">MY CART ({stateOne.CartItems})</h1>
       <div className="main-container">
         <div className="purchased-card">
-          <CartDetails />
-          <CartDetails />
-          <CartDetails />
+          <CartListingPage />
         </div>
         <BillDetails />
       </div>

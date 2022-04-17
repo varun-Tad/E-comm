@@ -3,8 +3,12 @@ import "./ProdListingCard.css";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-
+import { useWishCart } from "../../pages/CartPage/WishCart-context";
+const message = (msg) => {
+  console.log(msg);
+};
 function ProdListingCard(props) {
+  const { stateOne, dispatchOne } = useWishCart();
   return (
     <div className="card-content">
       <div className="image-contain">
@@ -12,10 +16,6 @@ function ProdListingCard(props) {
       </div>
       <div className="card-wrap">
         <div className="card-text-contain">
-          <h4>
-            {props.prodData.brand}
-            <FaHeart className="heart"></FaHeart>
-          </h4>
           <p>
             ₹ {props.prodData.price.discountPrice}{" "}
             <span>₹{props.prodData.price.actualPrice}</span>(
@@ -26,11 +26,26 @@ function ProdListingCard(props) {
           </p>
         </div>
         <div className="button-text-contain">
-          <button type="button" class="btn btn-success btns btn-one">
-            Buy Now
-          </button>
-          <button type="button" className="btn btn-success btns btn-two">
+          <button
+            class="btn btn-success btns btn-one"
+            onClick={() => {
+              stateOne.Cart.some((e) => e.id === props.prodData.id)
+                ? message("already exists")
+                : dispatchOne({ type: "addProToCart", value: props.prodData });
+            }}
+          >
             <FaShoppingCart></FaShoppingCart> Add to Cart
+          </button>
+
+          <button
+            class="btn btn-success btns btn-two"
+            onClick={() => {
+              stateOne.Wishlist.some((e) => e.id === props.prodData.id)
+                ? message("exist")
+                : dispatchOne({ type: "addProToWish", value: props.prodData });
+            }}
+          >
+            <FaHeart className="heart"></FaHeart> Add to wishlist
           </button>
         </div>
       </div>

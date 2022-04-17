@@ -2,36 +2,50 @@ import "./WishlistDetails.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import { useWishCart } from "../../CartPage/WishCart-context";
 
-function WishlistDetails() {
+function WishlistDetails(props) {
+  const { stateOne, dispatchOne } = useWishCart();
   return (
     <div>
       <div className="card-content">
         <div className="image-contain">
-          <img
-            src="https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/16373110/2021/12/4/f27a5989-4b15-491f-98a1-90b7347f4e5d1638621085660maxBoysBlueSlimFitLowDistressHeavyFadeJeans1.jpg"
-            alt="Jeans"
-          ></img>
+          <img src={props.WishData.imgSrc} alt="apparel"></img>
         </div>
         <div className="card-wrap">
           <div className="card-text-contain">
             <h4>
-              U.S. Polo Assn. Denim Co.
+              {props.WishData.brand}
               <FaHeart className="heart-color" />
             </h4>
             <p>
-              ₹2699 <span>₹3599</span> (25% OFF)
+              ₹{props.WishData.price.discountPrice}{" "}
+              <span>₹{props.WishData.price.actualPrice}</span> (
+              {props.WishData.price.discount}% OFF)
             </p>
             <p className="rate">
               5 <FaStar className="star-color" />| 5
             </p>
           </div>
           <div className="button-text-contain">
-            <button type="button" className="btn btn-success btns btn-one">
-              Remove
+            <button
+              className="wish-btn btn btn-success btns btn-one"
+              onClick={() => {
+                stateOne.Cart.some((e) => e.id === props.WishData.id)
+                  ? console.log("exists")
+                  : dispatchOne({ type: "moveToCart", value: props.WishData });
+              }}
+            >
+              <FaShoppingCart /> Move to Cart
             </button>
-            <button type="button" className="btn btn-success btns btn-two">
-              <FaShoppingCart /> Add to Cart
+
+            <button
+              className="btn btn-success btns btn-two"
+              onClick={() =>
+                dispatchOne({ type: "removeFromWish", value: props.WishData })
+              }
+            >
+              Remove from Wishlist
             </button>
           </div>
         </div>

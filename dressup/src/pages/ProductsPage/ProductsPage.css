@@ -6,7 +6,6 @@
 .prod-land {
   display: grid;
   grid-template-columns: 1fr 4fr;
-
   margin-top: 12rem;
   height: 100%;
   column-gap: 1rem;

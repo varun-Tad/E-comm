@@ -20,6 +20,7 @@ export const ProductsPageData = [
     },
     rating: 3,
     category: "Pants",
+    quantity: 0,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const ProductsPageData = [
       discount: 45,
     },
     rating: 4,
+    quantity: 0,
     category: "Pants",
   },
   {
@@ -43,6 +45,7 @@ export const ProductsPageData = [
       discount: 10,
     },
     rating: 4,
+    quantity: 0,
     category: "Shirts",
   },
   {
@@ -55,6 +58,7 @@ export const ProductsPageData = [
       discount: 25,
     },
     rating: 2,
+    quantity: 0,
     category: "Pants",
   },
   {
@@ -67,6 +71,7 @@ export const ProductsPageData = [
       discount: 65,
     },
     rating: 5,
+    quantity: 0,
     category: "Watches",
   },
   {
@@ -79,6 +84,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 3,
+    quantity: 0,
     category: "Watches",
   },
   {
@@ -91,6 +97,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 4,
+    quantity: 0,
     category: "Watches",
   },
   {
@@ -103,6 +110,7 @@ export const ProductsPageData = [
       discount: 45,
     },
     rating: 3,
+    quantity: 0,
     category: "Shirts",
   },
   {
@@ -115,6 +123,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 2,
+    quantity: 0,
     category: "Shirts",
   },
 ];
