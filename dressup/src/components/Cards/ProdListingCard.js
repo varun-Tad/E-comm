@@ -16,6 +16,7 @@ function ProdListingCard(props) {
       </div>
       <div className="card-wrap">
         <div className="card-text-contain">
+          <h4>{props.prodData.brand}</h4>
           <p>
             ₹ {props.prodData.price.discountPrice}{" "}
             <span>₹{props.prodData.price.actualPrice}</span>(
