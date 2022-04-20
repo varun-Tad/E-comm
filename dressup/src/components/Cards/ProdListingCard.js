@@ -16,7 +16,7 @@ function ProdListingCard(props) {
       </div>
       <div className="card-wrap">
         <div className="card-text-contain">
-          <h4>{props.prodData.brand}</h4>
+          <h4>{props.prodData.bran}</h4>
           <p>
             ₹ {props.prodData.price.discountPrice}{" "}
             <span>₹{props.prodData.price.actualPrice}</span>(
@@ -28,7 +28,7 @@ function ProdListingCard(props) {
         </div>
         <div className="button-text-contain">
           <button
-            class="btn btn-success btns btn-one"
+            className="btn btn-success btns btn-one"
             onClick={() => {
               stateOne.Cart.some((e) => e.id === props.prodData.id)
                 ? message("already exists")
@@ -39,7 +39,7 @@ function ProdListingCard(props) {
           </button>
 
           <button
-            class="btn btn-success btns btn-two"
+            className="btn btn-success btns btn-two"
             onClick={() => {
               stateOne.Wishlist.some((e) => e.id === props.prodData.id)
                 ? message("exist")

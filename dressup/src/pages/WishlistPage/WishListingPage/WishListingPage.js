@@ -8,7 +8,9 @@ const WishListingPage = () => {
   return (
     <div className="wish-container">
       {stateOne.Wishlist.map((item) => {
-        return <WishlistDetails WishData={item}></WishlistDetails>;
+        return (
+          <WishlistDetails key={item.id} WishData={item}></WishlistDetails>
+        );
       })}
     </div>
   );

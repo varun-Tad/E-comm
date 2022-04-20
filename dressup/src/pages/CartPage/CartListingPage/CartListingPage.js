@@ -7,7 +7,7 @@ const CartListingPage = () => {
   return (
     <div>
       {stateOne.Cart.map((item) => {
-        return <CartDetails CartData={item}></CartDetails>;
+        return <CartDetails key={item.id} CartData={item}></CartDetails>;
       })}
     </div>
   );

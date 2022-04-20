@@ -45,7 +45,7 @@
   background-color: var(--color-primary-darker);
   color: var(--color-white);
   border: none;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
   cursor: pointer;
   margin-bottom: 2rem;
