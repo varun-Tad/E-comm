@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: 22rem auto;
   border-radius: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   background-color: var(--color-white);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,

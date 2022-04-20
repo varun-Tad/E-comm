@@ -1,0 +1,6 @@
+.wish-container {
+  display: flex;
+  row-gap: 5rem;
+  column-gap: 5rem;
+  flex-wrap: wrap;
+}

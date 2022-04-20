@@ -1,21 +1,21 @@
-import { Navbar, Footer, WishlistDetails } from "./index";
+import { Navbar, Footer } from "./index";
 import { FaHeart } from "react-icons/fa";
+import { useWishCart } from "../CartPage/WishCart-context";
+import WishListingPage from "./WishListingPage/WishListingPage";
 import "./Wishlist.css";
 function Wishlist() {
+  const { stateOne } = useWishCart();
   return (
-    <div>
+    <div className="WishlistPageBody">
       <Navbar />
       <h1>
-        Your WishList <FaHeart />
+        Your WishList({stateOne.WishListItems}) <FaHeart />
       </h1>
       <div className="wishlist-container">
-        <WishlistDetails />
-        <WishlistDetails />
-        <WishlistDetails />
+        <WishListingPage />
       </div>
-      <div className="footer-sec">
-        <Footer />
-      </div>
+
+      <Footer />
     </div>
   );
 }

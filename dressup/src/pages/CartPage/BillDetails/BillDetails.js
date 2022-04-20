@@ -21,9 +21,7 @@ function BillDetails() {
         <p>₹ 7030</p>
       </div>
 
-      <button type="button" className="btn btn-success btns buyNow-btn">
-        Buy Now
-      </button>
+      <button type="button">Buy Now</button>
     </div>
   );
 }

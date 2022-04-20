@@ -63,3 +63,7 @@
 .heart-color {
   color: var(--heart-red);
 }
+
+.wish-btn {
+  margin-right: 2rem;
+}
