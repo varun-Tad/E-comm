@@ -1,4 +1,5 @@
 import "./PrimaryNavbutton.css";
+import React from "react";
 
 const PrimaryNavbutton = ({ text }) => {
   return (

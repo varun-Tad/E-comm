@@ -1,6 +1,9 @@
+import { useWishCart } from "../WishCart-context";
+import React from "react";
 import "./BillDetails.css";
 
 function BillDetails() {
+  const { stateOne } = useWishCart();
   return (
     <div className="check-container">
       <h2>Price Details</h2>
@@ -18,7 +21,7 @@ function BillDetails() {
       </div>
       <div className="total">
         <h3>Total Amount</h3>
-        <p>₹ 7030</p>
+        <p>{stateOne.TotalPrice}</p>
       </div>
 
       <button type="button">Buy Now</button>

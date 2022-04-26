@@ -3,6 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useWishCart } from "../../CartPage/WishCart-context";
+import React from "react";
 
 function WishlistDetails(props) {
   const { stateOne, dispatchOne } = useWishCart();

@@ -1,3 +1,4 @@
+import React from "react";
 import "./CartDetails.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { useWishCart } from "../WishCart-context";

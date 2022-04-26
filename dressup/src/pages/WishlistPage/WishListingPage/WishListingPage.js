@@ -1,5 +1,6 @@
 import { useWishCart } from "../../CartPage/WishCart-context";
 import WishlistDetails from "../WishlistDetails/WishlistDetails";
+import React from "react";
 import "./WishListingPage.css";
 
 const WishListingPage = () => {

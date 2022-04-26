@@ -1,4 +1,5 @@
 import PrimaryNavbutton from "../Buttons/PrimaryNavbutton";
+import React from "react";
 import "./Card.css";
 
 function Card(props) {

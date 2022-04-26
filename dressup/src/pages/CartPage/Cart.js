@@ -2,6 +2,7 @@ import "./Cart.css";
 import { Navbar, Footer, BillDetails } from "../CartPage/index";
 import CartListingPage from "./CartListingPage/CartListingPage";
 import { useWishCart } from "./WishCart-context";
+import React from "react";
 
 function Cart() {
   const { stateOne } = useWishCart();

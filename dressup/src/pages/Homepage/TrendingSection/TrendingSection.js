@@ -1,4 +1,5 @@
 import "./TrendingSection.css";
+import React from "react";
 
 import img3 from "../../../images/handbags.jpeg";
 import img4 from "../../../images/watch.jpeg";
