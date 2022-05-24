@@ -8,17 +8,6 @@ const WishCartContext = createContext(null);
 const useWishCart = () => useContext(WishCartContext);
 
 const WishCartProvier = ({ children }) => {
-  // const [theData, setTheData] = useState();
-  // useEffect(() => {
-  //   fetch("/api/products")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data.products);
-  //       setTheData(data.products);
-  //       console.log("theData", theData);
-  //     });
-  // }, []);
-
   const [stateOne, dispatchOne] = useReducer(reducerFnOne, {
     Product: [...ProductsPageData],
     Cart: [],

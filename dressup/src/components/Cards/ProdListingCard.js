@@ -11,20 +11,7 @@ const message = (msg) => {
 };
 function ProdListingCard(props) {
   const { stateOne, dispatchOne } = useWishCart();
-  const addCart = async (cartData) => {
-    console.log(cartData);
-    const token = localStorage.getItem("token");
-    const response = await axios({
-      method: "post",
-      url: "/api/user/cart",
 
-      data: {
-        product: cartData,
-      },
-      headers: { authorization: token },
-    });
-    console.log(response);
-  };
   return (
     <div className="card-content">
       <div className="image-contain">
@@ -48,7 +35,7 @@ function ProdListingCard(props) {
             onClick={() => {
               stateOne.Cart.some((e) => e.id === props.prodData.id)
                 ? message("already exists")
-                : addCart(props.prodData);
+                : dispatchOne({ type: "addProToCart", value: props.prodData });
             }}
           >
             <FaShoppingCart></FaShoppingCart> Add to Cart
