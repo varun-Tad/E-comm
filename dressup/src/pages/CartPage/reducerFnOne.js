@@ -43,7 +43,7 @@ const subFunc = (stateOne, state, item) => {
 
 const addCart = (passedState, item) => {
   const objIndex = passedState.findIndex((obj) => obj.id === item.id);
-  // passedState[objIndex].quantity = 2;
+  passedState[objIndex].quantity = 2;
   if (passedState[objIndex].brand === "U.S. Polo Assn") {
     passedState[objIndex].TotalItemPrice = 2000;
   } else if (passedState[objIndex].brand === "U.S. Polo Assn. Denim Co.") {
@@ -84,7 +84,7 @@ const reducerFnOne = (stateOne, action) => {
         TotalPrice: stateOne.TotalPrice + action.value.price.discountPrice,
         CartItems: stateOne.CartItems + 1,
         Cart: [...stateOne.Cart, action.value],
-        // Product: [...theState],
+        Product: [...theState],
       };
     }
     case "addProToWish": {
