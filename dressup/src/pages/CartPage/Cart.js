@@ -9,7 +9,7 @@ function Cart() {
   return (
     <div>
       <Navbar />
-      <h1 className="cart-heading">MY CART ({stateOne.CartItems})</h1>
+      <h1 className="cart-heading">MY CART ({stateOne.CartCount})</h1>
       <div className="main-container">
         <div className="purchased-card">
           <CartListingPage />
