@@ -20,8 +20,6 @@ export const ProductsPageData = [
     },
     rating: 3,
     categoryName: "Pants",
-    quantity: 1,
-    TotalItemPrice: 2000,
   },
   {
     id: 2,
@@ -33,9 +31,7 @@ export const ProductsPageData = [
       discount: 45,
     },
     rating: 4,
-    quantity: 1,
     categoryName: "Pants",
-    TotalItemPrice: 1759,
   },
   {
     id: 3,
@@ -47,9 +43,7 @@ export const ProductsPageData = [
       discount: 10,
     },
     rating: 4,
-    quantity: 1,
     categoryName: "Shirts",
-    TotalItemPrice: 800,
   },
   {
     id: 4,
@@ -61,9 +55,7 @@ export const ProductsPageData = [
       discount: 25,
     },
     rating: 2,
-    quantity: 1,
     categoryName: "Pants",
-    TotalItemPrice: 2699,
   },
   {
     id: 5,
@@ -75,9 +67,7 @@ export const ProductsPageData = [
       discount: 65,
     },
     rating: 5,
-    quantity: 1,
     categoryName: "Watches",
-    TotalItemPrice: 1084,
   },
   {
     id: 6,
@@ -89,9 +79,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 3,
-    quantity: 1,
     categoryName: "Watches",
-    TotalItemPrice: 6597,
   },
   {
     id: 7,
@@ -103,9 +91,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 4,
-    quantity: 1,
     categoryName: "Watches",
-    TotalItemPrice: 2000,
   },
   {
     id: 8,
@@ -117,9 +103,7 @@ export const ProductsPageData = [
       discount: 45,
     },
     rating: 3,
-    quantity: 1,
     categoryName: "Shirts",
-    TotalItemPrice: 714,
   },
   {
     id: 9,
@@ -131,8 +115,6 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 2,
-    quantity: 1,
     categoryName: "Shirts",
-    TotalItemPrice: 2000,
   },
 ];

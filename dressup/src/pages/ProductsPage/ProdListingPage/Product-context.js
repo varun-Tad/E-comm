@@ -16,10 +16,6 @@ const ProductProvider = ({ children }) => {
     },
   });
 
-  localStorage.setItem(
-    "token",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkZTNhNDI2MC1mNzUxLTQyMTUtYjg3Yi0yN2JlYWEwNmQ4NzYifQ.GYv_FtF9AV-AyMjoZza_d3dANrHfAi5Jppzrb6TWiT4"
-  );
   return (
     <ProductContext.Provider value={{ state, dispatch }}>
       {children}
