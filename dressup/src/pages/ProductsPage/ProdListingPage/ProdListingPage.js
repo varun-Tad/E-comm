@@ -32,7 +32,9 @@ const ProdListingPage = () => {
   return (
     <div className="card-vessel">
       {RangedProducts.map((item) => {
-        return <ProdListingCard prodData={item}></ProdListingCard>;
+        return (
+          <ProdListingCard key={item.id} prodData={item}></ProdListingCard>
+        );
       })}
     </div>
   );

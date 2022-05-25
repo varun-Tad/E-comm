@@ -31,11 +31,14 @@ function ProdListingCard(props) {
         <div className="button-text-contain">
           <button
             className="btn btn-success btns btn-one"
-            onClick={() => {
-              stateOne.Cart.some((e) => e.id === props.prodData.id)
-                ? message("already exists")
-                : dispatchOne({ type: "addProToCart", value: props.prodData });
-            }}
+            // onClick={() => {
+            //   stateOne.Cart.some((e) => e.id === props.prodData.id)
+            //     ? message("already exists")
+            //     : dispatchOne({ type: "addProToCart", value: props.prodData });
+            // }}
+            onClick={() =>
+              dispatchOne({ type: "addProToCart", value: props.prodData })
+            }
           >
             <FaShoppingCart></FaShoppingCart> Add to Cart
           </button>

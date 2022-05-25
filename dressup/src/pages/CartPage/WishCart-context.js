@@ -7,9 +7,9 @@ const WishCartContext = createContext({
   Product: [...ProductsPageData],
   Cart: [],
   Wishlist: [],
-  CartItems: 0,
+  CartCount: 0,
   WishListItems: 0,
-  TotalPrice: 0,
+  CartTotal: 0,
 });
 
 const useWishCart = () => useContext(WishCartContext);

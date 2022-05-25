@@ -20,16 +20,20 @@ const reducerFnOne = (stateOne, action) => {
         return acc + ItemObj.quantity;
       }, 0);
 
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
+      console.log("totalPrice", totalPrice, typeof totalPrice);
+
       return {
         ...stateOne,
-        CartTotal: stateOne.TotalPrice + action.value.price.discountPrice,
-        CartCount: totalQuantity,
+        CartTotal: totalPrice,
+        CartCount: newCartArr.length,
         Cart: [...newCartArr],
       };
     }
     case "addProToWish": {
-      // must add quantity
-
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems + 1,
@@ -38,32 +42,23 @@ const reducerFnOne = (stateOne, action) => {
     }
     case "removeFromCart": {
       let newCartArr = [];
-      const existingItem = stateOne.Cart.find(
-        (item) => item.id === action.value.id
-      );
 
-      if (existingItem.quantity === 1) {
-        newCartArr = stateOne.Cart.filter(
-          (ele) => ele.brand !== action.value.brand
-        );
-      } else {
-        newCartArr = stateOne.Cart.map((ele) =>
-          ele.id === action.value.id
-            ? { ...ele, quantity: ele.quantity - 1 }
-            : ele
-        );
-      }
+      newCartArr = stateOne.Cart.filter(
+        (ele) => ele.brand !== action.value.brand
+      );
 
       const totalQuantity = newCartArr.reduce((acc, ItemObj) => {
         return acc + ItemObj.quantity;
       }, 0);
 
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        CartTotal:
-          stateOne.TotalPrice -
-          action.value.price.discountPrice * action.value.quantity,
-        CartCount: totalQuantity,
+        CartTotal: totalPrice,
+        CartCount: newCartArr.length,
         Cart: [...newCartArr],
       };
     }
@@ -77,8 +72,6 @@ const reducerFnOne = (stateOne, action) => {
       };
     }
     case "moveToWish": {
-      //Cart item should decrease
-
       const newCartArr = stateOne.Cart.filter(
         (ele) => ele.brand !== action.value.brand
       );
@@ -89,10 +82,7 @@ const reducerFnOne = (stateOne, action) => {
 
       return {
         ...stateOne,
-        CartTotal:
-          stateOne.TotalPrice -
-          action.value.price.discountPrice * action.value.quantity,
-        CartCount: totalQuantity,
+        CartCount: newCartArr.length,
         WishListItems: stateOne.WishListItems + 1,
         Cart: [...newCartArr],
         Wishlist: [...stateOne.Wishlist, action.value],
@@ -109,12 +99,14 @@ const reducerFnOne = (stateOne, action) => {
         return acc + ItemObj.quantity;
       }, 0);
 
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        CartTotal:
-          stateOne.TotalPrice +
-          action.value.price.discountPrice * action.value.quantity,
-        CartCount: totalQuantity,
+        CartTotal: totalPrice,
+        CartCount: newCartArr.length,
         WishListItems: stateOne.WishListItems - 1,
         Wishlist: stateOne.Wishlist.filter((ele) => {
           return ele.brand !== action.value.brand;
@@ -123,19 +115,45 @@ const reducerFnOne = (stateOne, action) => {
       };
     }
     case "inc": {
-      // const newState = addFunc(stateOne.Product, action.value);
+      let newCartArr = [];
+
+      newCartArr = stateOne.Cart.map((item) =>
+        item.id === action.value.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        TotalPrice: stateOne.TotalPrice + action.value.price.discountPrice,
-        // Product: [...newState],
+        CartTotal: totalPrice,
+        Cart: [...newCartArr],
       };
     }
     case "dec": {
-      // const newState = subFunc(stateOne, stateOne.Product, action.value);
+      let newCartArr = [];
+
+      if (action.value.quantity === 1) {
+        newCartArr = stateOne.Cart.filter((ele) => ele.id !== action.value.id);
+      } else {
+        newCartArr = stateOne.Cart.map((item) =>
+          item.id === action.value.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      }
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        TotalPrice: stateOne.TotalPrice - action.value.price.discountPrice,
-        // Product: [...newState],
+        CartTotal: totalPrice,
+        Cart: [...newCartArr],
       };
     }
     default:

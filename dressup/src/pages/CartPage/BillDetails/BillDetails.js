@@ -21,7 +21,7 @@ function BillDetails() {
       </div>
       <div className="total">
         <h3>Total Amount</h3>
-        <p>{stateOne.TotalPrice}</p>
+        <p>{stateOne.CartTotal}</p>
       </div>
 
       <button type="button">Buy Now</button>
