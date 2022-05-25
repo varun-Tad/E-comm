@@ -4,7 +4,6 @@ import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
-import axios from "axios";
 import React from "react";
 const message = (msg) => {
   console.log(msg);

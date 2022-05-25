@@ -13,7 +13,7 @@ import {
 
 import { useProduct } from "./Product-context";
 import { useWishCart } from "../../CartPage/WishCart-context";
-import { useState } from "react";
+// import { useState } from "react";
 
 const ProdListingPage = () => {
   const { state } = useProduct();
