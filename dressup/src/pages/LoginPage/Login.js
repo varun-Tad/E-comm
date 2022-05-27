@@ -1,17 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
+import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 import "./Login.css";
 
-function Login() {
+const Login = () => {
+  const logGoogleUser = async () => {
+    try {
+      const response = await signInWithGooglePopup();
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <LoginPageNavbar />
       <div className="main-containers">
         <div className="login-containers">
-          <form className="forms">
+          <div className="forms">
             <h2>Login</h2>
-            <div className="google-texts">
+            <div className="google-texts" onClick={logGoogleUser}>
               <img
                 src="https://img.icons8.com/color/24/000000/google-logo.png"
                 alt="google-icon"
@@ -50,11 +60,12 @@ function Login() {
             <p className="signUp-para">
               Don't have an account? <Link to="/Signup">Sign up</Link>
             </p>
-          </form>
+          </div>{" "}
+          {/*form*/}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Login;
