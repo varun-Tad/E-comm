@@ -1,14 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
-import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromDoc,
+} from "../../utils/firebase/firebase.utils";
 import "./Login.css";
 
 const Login = () => {
+  let navigate = useNavigate();
   const logGoogleUser = async () => {
     try {
-      const response = await signInWithGooglePopup();
-      console.log(response);
+      const { user } = await signInWithGooglePopup();
+      createUserDocumentFromDoc(user);
+      // navigate("/");
     } catch (err) {
       console.log(err);
     }
