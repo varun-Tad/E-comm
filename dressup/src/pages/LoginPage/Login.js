@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromDoc,
+  createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 import "./Login.css";
 
@@ -12,7 +12,8 @@ const Login = () => {
   const logGoogleUser = async () => {
     try {
       const { user } = await signInWithGooglePopup();
-      createUserDocumentFromDoc(user);
+
+      const userDocRef = await createUserDocumentFromAuth(user);
       // navigate("/");
     } catch (err) {
       console.log(err);

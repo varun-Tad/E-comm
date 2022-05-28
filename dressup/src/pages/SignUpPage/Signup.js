@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
 import "./Signup.css";
 import img1 from "../../images/sport-shoes.webp";
@@ -6,7 +6,58 @@ import img2 from "../../images/Red-kurta.webp";
 import img3 from "../../images/handbags.jpeg";
 import img4 from "../../images/watch.jpeg";
 import { Link } from "react-router-dom";
-function Signup() {
+
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
+
+const defaultFormFields = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
+const Signup = () => {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
+
+  console.log(formFields);
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+      await createUserDocumentFromAuth(user, { displayName });
+      resetFormFields();
+    } catch (error) {
+      if (error.code === "auth/email-a;ready-in-use") {
+        alert("Cannot create user.Email already in use");
+      } else {
+        console.error("user creation encountered an error", error);
+      }
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormFields({ ...formFields, [name]: value });
+  };
+
   return (
     <div>
       <LoginPageNavbar />
@@ -19,53 +70,68 @@ function Signup() {
           <p>...and more!</p>
         </div>
         <div class="login-container">
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
-            <div className="google-text">
-              <img
-                src="https://img.icons8.com/color/24/000000/google-logo.png"
-                alt="google-icon-img"
-              />
-              <span>Sign up with Google</span>
-            </div>
-            <small className="form-smallText">or Sign up with Email</small>
+
+            {/* <small className="form-smallText">Sign up with Email</small> */}
             <div className="basic-input-textboxes">
-              <label for="Name"></label>
+              <label></label>
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="text"
                 placeholder="Enter name"
                 required
+                onChange={handleChange}
+                name="displayName"
+                value={displayName}
               />
             </div>
             <div className="basic-input-textboxes">
-              <label for="Email"></label>
+              <label></label>
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="email"
                 placeholder="Enter email"
                 required
+                onChange={handleChange}
+                name="email"
+                value={email}
               />
             </div>
             <div className="basic-input-textboxes">
-              <label for="Password"></label>
+              <label></label>
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="password"
                 placeholder="Enter Password"
                 required
+                onChange={handleChange}
+                name="password"
+                value={password}
+              />
+            </div>
+            <div className="basic-input-textboxes">
+              <label></label>
+              <input
+                className="basic-input-box inp-btn login-inp"
+                type="password"
+                placeholder="Confirm Password"
+                required
+                onChange={handleChange}
+                name="confirmPassword"
+                value={confirmPassword}
               />
             </div>
 
             <div className="check-box">
               <div>
                 <input type="checkbox" />
-                <label for="">
+                <label>
                   I agree to the <span>Terms & Conditions</span>
                 </label>
               </div>
             </div>
-            <button type="button" className="btn btn-secondary btns">
+            <button type="submit" className="btn btn-secondary btns">
               Sign Up
             </button>
             <p>
@@ -76,6 +142,6 @@ function Signup() {
       </div>
     </div>
   );
-}
+};
 
 export default Signup;

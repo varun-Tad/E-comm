@@ -6,7 +6,7 @@ import Cart from "./pages/CartPage/Cart";
 import Wishlist from "./pages/WishlistPage/Wishlist";
 import Login from "./pages/LoginPage/Login";
 import Signup from "./pages/SignUpPage/Signup";
-import Mockman from "mockman-js";
+// import Mockman from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,7 +19,6 @@ function App() {
         <Route path="/Wishlist" element={<Wishlist />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/mock" element={<Mockman />} />
       </Routes>
     </div>
   );
