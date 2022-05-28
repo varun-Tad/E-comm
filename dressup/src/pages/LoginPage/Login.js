@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
+import { UserContext } from "../../contexts/user.context";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
+import { Navbar } from "../Homepage";
 import "./Login.css";
 
 const defaultFormFields = {
@@ -16,7 +18,7 @@ const defaultFormFields = {
 const Login = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
+  const { setCurrentUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   const resetFormFields = () => {
@@ -26,9 +28,10 @@ const Login = () => {
   const signInWithGoogle = async () => {
     try {
       const { user } = await signInWithGooglePopup();
-
+      setCurrentUser(user);
       // const userDocRef = await createUserDocumentFromAuth(user);
       await createUserDocumentFromAuth(user);
+
       // navigate("/");
     } catch (err) {
       console.log(err);
@@ -39,12 +42,14 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+      // console.log(response);
+      setCurrentUser(user);
       resetFormFields();
+
       console.log("signed in ");
     } catch (error) {
       switch (error.code) {
@@ -68,7 +73,8 @@ const Login = () => {
 
   return (
     <div>
-      <LoginPageNavbar />
+      {/* <LoginPageNavbar /> */}
+      <Navbar />
       <div className="main-containers">
         <div className="login-containers">
           <form className="forms" onSubmit={handleSubmit}>
