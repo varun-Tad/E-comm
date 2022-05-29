@@ -1,13 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/cart.context";
+import { UserContext } from "../../contexts/user.context";
 import CartItemsDropdown from "../Cart-items-dropdown/CartItemsDropdown";
 import "./cartDropdown.css";
 
 const CartDropdown = () => {
+  let navigate = useNavigate();
   const { isCartOpen, setIsCartOpen } = useCart();
+  const { currentUser } = useContext(UserContext);
 
   const toggleCart = () => {
+    if (currentUser) {
+      navigate("/Cart");
+    } else {
+      navigate("/Login");
+    }
     setIsCartOpen(!isCartOpen);
   };
 
@@ -16,9 +24,7 @@ const CartDropdown = () => {
       <div className="cart-items">
         <CartItemsDropdown />
       </div>
-      <button onClick={toggleCart}>
-        <Link to="/Cart"> Go to Checkout</Link>
-      </button>
+      <button onClick={toggleCart}>Go To Checkout</button>
     </div>
   );
 };

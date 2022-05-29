@@ -1,3 +1,6 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const reducerFnOne = (stateOne, action) => {
   switch (action.type) {
     case "addProToCart": {
@@ -34,6 +37,9 @@ const reducerFnOne = (stateOne, action) => {
       };
     }
     case "addProToWish": {
+      toast.success("Item added to Wishlist", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems + 1,
@@ -54,7 +60,9 @@ const reducerFnOne = (stateOne, action) => {
       const totalPrice = newCartArr.reduce((acc, item) => {
         return acc + item.quantity * item.price.discountPrice;
       }, 0);
-
+      toast.success("Item removed from Cart", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         CartTotal: totalPrice,
@@ -63,6 +71,9 @@ const reducerFnOne = (stateOne, action) => {
       };
     }
     case "removeFromWish": {
+      toast.success("Item removed from Wishlist", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems - 1,
@@ -79,7 +90,9 @@ const reducerFnOne = (stateOne, action) => {
       // const totalQuantity = newCartArr.reduce((acc, ItemObj) => {
       //   return acc + ItemObj.quantity;
       // }, 0);
-
+      toast.success("Item moved from Wishlist", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         CartCount: newCartArr.length,
@@ -103,6 +116,9 @@ const reducerFnOne = (stateOne, action) => {
         return acc + item.quantity * item.price.discountPrice;
       }, 0);
 
+      toast.success("Item moved from Cart", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         CartTotal: totalPrice,

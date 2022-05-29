@@ -3,11 +3,11 @@ import "./ProdListingCard.css";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
 import React from "react";
-const message = (msg) => {
-  console.log(msg);
-};
+
 function ProdListingCard(props) {
   const { stateOne, dispatchOne } = useWishCart();
 
@@ -36,9 +36,12 @@ function ProdListingCard(props) {
             //     ? message("already exists")
             //     : dispatchOne({ type: "addProToCart", value: props.prodData });
             // }}
-            onClick={() =>
-              dispatchOne({ type: "addProToCart", value: props.prodData })
-            }
+            onClick={() => {
+              toast.success("Item added to Cart", {
+                autoClose: 3000,
+              });
+              dispatchOne({ type: "addProToCart", value: props.prodData });
+            }}
           >
             <FaShoppingCart></FaShoppingCart> Add to Cart
           </button>
@@ -47,7 +50,9 @@ function ProdListingCard(props) {
             className="btn btn-success btns btn-two"
             onClick={() => {
               stateOne.Wishlist.some((e) => e.id === props.prodData.id)
-                ? message("exist")
+                ? toast.info("Item already exists in wishlist", {
+                    autoClose: 3000,
+                  })
                 : dispatchOne({ type: "addProToWish", value: props.prodData });
             }}
           >

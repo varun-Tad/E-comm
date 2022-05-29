@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
-import { UserContext } from "../../contexts/user.context";
+// import { UserContext } from "../../contexts/user.context";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -18,7 +20,7 @@ const defaultFormFields = {
 const Login = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  const { setCurrentUser } = useContext(UserContext);
+  // const { setCurrentUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   const resetFormFields = () => {
@@ -27,11 +29,10 @@ const Login = () => {
 
   const signInWithGoogle = async () => {
     try {
-      const { user } = await signInWithGooglePopup();
-      setCurrentUser(user);
+      // const { user } = await signInWithGooglePopup();
+      // setCurrentUser(user);
       // const userDocRef = await createUserDocumentFromAuth(user);
-      await createUserDocumentFromAuth(user);
-
+      await signInWithGooglePopup();
       // navigate("/");
     } catch (err) {
       console.log(err);
@@ -47,17 +48,21 @@ const Login = () => {
         password
       );
       // console.log(response);
-      setCurrentUser(user);
+      // setCurrentUser(user);
       resetFormFields();
 
       console.log("signed in ");
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
-          alert("incorrect password for email");
+          toast.error("incorrect password for email", {
+            autoClose: 3000,
+          });
           break;
         case "auth/user-not-found":
-          alert("no user associated with this email");
+          toast.error("no user associated with this email", {
+            autoClose: 3000,
+          });
           break;
         default:
           console.log(error);

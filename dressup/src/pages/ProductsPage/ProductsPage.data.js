@@ -19,7 +19,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 3,
-    categoryName: "Pants",
+    categoryName: "Pants", //title
   },
   {
     id: 2,

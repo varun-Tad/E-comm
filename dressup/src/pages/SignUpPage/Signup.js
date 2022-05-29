@@ -5,6 +5,8 @@ import img1 from "../../images/sport-shoes.webp";
 import img2 from "../../images/Red-kurta.webp";
 import img3 from "../../images/handbags.jpeg";
 import img4 from "../../images/watch.jpeg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
 import {
@@ -23,7 +25,7 @@ const defaultFormFields = {
 const Signup = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  const { setCurrentUser } = useContext(UserContext);
+  // const { setCurrentUser } = useContext(UserContext);
 
   console.log(formFields);
 
@@ -35,7 +37,9 @@ const Signup = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      toast.error("Passwords do not match", {
+        autoClose: 3000,
+      });
       return;
     }
 
@@ -44,12 +48,14 @@ const Signup = () => {
         email,
         password
       );
-      setCurrentUser(user);
+      // setCurrentUser(user);
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-a;ready-in-use") {
-        alert("Cannot create user.Email already in use");
+        toast.error("Cannot create user.Email already in use", {
+          autoClose: 3000,
+        });
       } else {
         console.error("user creation encountered an error", error);
       }

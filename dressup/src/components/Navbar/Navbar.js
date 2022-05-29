@@ -10,8 +10,8 @@ const Navbar = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
+    // await signOutUser();
+    // setCurrentUser(null);
     console.log("signed out");
   };
 
@@ -24,7 +24,7 @@ const Navbar = () => {
         {/* <PrimaryNavbutton text={"Sign in"}></PrimaryNavbutton> */}
 
         {currentUser ? (
-          <button onClick={signOutHandler}>Sign Out</button>
+          <button onClick={signOutUser}>Sign Out</button>
         ) : (
           <Link to="/Login">
             <button>Sign in</button>
