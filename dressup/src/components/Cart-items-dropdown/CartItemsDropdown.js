@@ -5,17 +5,18 @@ import "./CartItemsDropdown.css";
 
 const CartItemsDropdown = () => {
   const { stateOne } = useWishCart();
-  //   const { cart } = stateOne.Cart;
-  //   console.log("Cart", cart);
-  return (
-    // <div>
-    //   {/* <h2>{stateOne.Cart[0].brand}</h2>
-    //   <span>{stateOne.Cart[0].quantity}</span> */}
-    // </div>
 
+  return (
     <div>
       {stateOne.Cart.map((ele) => (
-        <div>{ele.brand}</div>
+        <div className="cart-contents-container">
+          <div className="cart-contents">
+            <div>{ele.brand}</div>
+            <div>
+              {ele.quantity} X ${ele.price.discountPrice}
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   );

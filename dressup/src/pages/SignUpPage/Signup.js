@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
-import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
+import React, { useState } from "react";
+
 import "./Signup.css";
 import img1 from "../../images/sport-shoes.webp";
 import img2 from "../../images/Red-kurta.webp";
 import img3 from "../../images/handbags.jpeg";
 import img4 from "../../images/watch.jpeg";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,6 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
   displayName: "",
@@ -25,7 +24,6 @@ const defaultFormFields = {
 const Signup = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  // const { setCurrentUser } = useContext(UserContext);
 
   console.log(formFields);
 
@@ -48,7 +46,7 @@ const Signup = () => {
         email,
         password
       );
-      // setCurrentUser(user);
+
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
@@ -69,7 +67,6 @@ const Signup = () => {
 
   return (
     <div>
-      <LoginPageNavbar />
       <div className="main-container">
         <div className="image-container">
           <img className="image1" src={img1} alt="apparel" />
@@ -82,7 +79,6 @@ const Signup = () => {
           <form className="form" onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
 
-            {/* <small className="form-smallText">Sign up with Email</small> */}
             <div className="basic-input-textboxes">
               <label></label>
               <input

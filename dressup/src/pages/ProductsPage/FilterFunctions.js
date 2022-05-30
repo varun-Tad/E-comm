@@ -107,7 +107,6 @@ const sortingCatgeories = (categs, ratedProducts) => {
 };
 
 const sortPriceRange = (theValue, checkBoxProducts) => {
-  console.log(checkBoxProducts);
   return checkBoxProducts.filter((item) => item.price.discountPrice < theValue);
 };
 

@@ -5,9 +5,9 @@ import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
 } from "../utils/firebase/firebase.utils";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//actual value you want to ask
+
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
@@ -23,15 +23,9 @@ export const UserProvider = ({ children }) => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocumentFromAuth(user); //Here if logged in create a document for the user
-        toast.success("Login successful !", {
-          autoClose: 3000,
-        });
         setCurrentUser(user);
-        navigate("/");
+        navigate(-1);
       } else {
-        toast.success("Logout successful", {
-          autoClose: 3000,
-        });
         setCurrentUser(user);
         navigate("/");
       }

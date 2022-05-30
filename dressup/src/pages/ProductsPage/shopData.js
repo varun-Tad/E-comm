@@ -22,7 +22,7 @@ const shopData = [
           discount: 40,
         },
         rating: 3,
-        categoryName: "Pants", //title
+        categoryName: "Pants",
       },
       {
         id: 2,

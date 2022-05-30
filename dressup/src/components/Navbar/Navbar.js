@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
 import "./Navbar.css";
 
-import { Logo, PrimaryNavbutton, Searchbar, Navicons } from "./index";
+import { Logo, Searchbar, Navicons } from "./index";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const signOutHandler = async () => {
-    // await signOutUser();
-    // setCurrentUser(null);
-    console.log("signed out");
+    await signOutUser();
+
+    toast.success("Logout successful", {
+      autoClose: 3000,
+    });
   };
 
   return (
@@ -21,13 +24,13 @@ const Navbar = () => {
         <Logo></Logo>
       </div>
       <div className="right-nav">
-        {/* <PrimaryNavbutton text={"Sign in"}></PrimaryNavbutton> */}
-
         {currentUser ? (
-          <button onClick={signOutUser}>Sign Out</button>
+          <button className="sign-btn" onClick={signOutHandler}>
+            Sign Out
+          </button>
         ) : (
           <Link to="/Login">
-            <button>Sign in</button>
+            <button className="sign-btn">Sign In</button>
           </Link>
         )}
 

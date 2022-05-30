@@ -7,7 +7,6 @@ import Wishlist from "./pages/WishlistPage/Wishlist";
 import Login from "./pages/LoginPage/Login";
 import Signup from "./pages/SignUpPage/Signup";
 
-// import Mockman from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

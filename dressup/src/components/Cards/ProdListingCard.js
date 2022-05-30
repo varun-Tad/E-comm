@@ -1,9 +1,8 @@
-// import PrimaryNavbutton from "../Buttons/PrimaryNavbutton";
 import "./ProdListingCard.css";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
 import React from "react";
@@ -22,7 +21,7 @@ function ProdListingCard(props) {
           <p>
             ₹ {props.prodData.price.discountPrice}{" "}
             <span>₹{props.prodData.price.actualPrice}</span>(
-            {props.prodData.price.discount} OFF)
+            {props.prodData.price.discount}% OFF)
           </p>
           <p className="rate">
             {props.prodData.rating} <FaStar className="star"></FaStar>| 5
@@ -31,11 +30,6 @@ function ProdListingCard(props) {
         <div className="button-text-contain">
           <button
             className="btn btn-success btns btn-one"
-            // onClick={() => {
-            //   stateOne.Cart.some((e) => e.id === props.prodData.id)
-            //     ? message("already exists")
-            //     : dispatchOne({ type: "addProToCart", value: props.prodData });
-            // }}
             onClick={() => {
               toast.success("Item added to Cart", {
                 autoClose: 3000,

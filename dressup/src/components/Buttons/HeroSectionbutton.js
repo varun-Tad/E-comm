@@ -2,8 +2,6 @@ import "./HeroSectionbutton.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-// import Productspage from "../../pages/ProductsPage/Productspage";
-
 function HeroSectionbutton() {
   return (
     <div>

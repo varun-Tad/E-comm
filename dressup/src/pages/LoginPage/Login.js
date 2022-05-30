@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LoginPageNavbar from "../../components/LoginPageNavbar/LoginPageNavbar";
-// import { UserContext } from "../../contexts/user.context";
-import { ToastContainer, toast } from "react-toastify";
+
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 import { Navbar } from "../Homepage";
@@ -20,7 +18,7 @@ const defaultFormFields = {
 const Login = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-  // const { setCurrentUser } = useContext(UserContext);
+
   let navigate = useNavigate();
 
   const resetFormFields = () => {
@@ -29,13 +27,12 @@ const Login = () => {
 
   const signInWithGoogle = async () => {
     try {
-      // const { user } = await signInWithGooglePopup();
-      // setCurrentUser(user);
-      // const userDocRef = await createUserDocumentFromAuth(user);
       await signInWithGooglePopup();
-      // navigate("/");
+      toast.success("Login successful !", {
+        autoClose: 3000,
+      });
     } catch (err) {
-      console.log(err);
+      alert(err);
     }
   };
 
@@ -47,11 +44,10 @@ const Login = () => {
         email,
         password
       );
-      // console.log(response);
-      // setCurrentUser(user);
       resetFormFields();
-
-      console.log("signed in ");
+      toast.success("Login successful !", {
+        autoClose: 3000,
+      });
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -78,7 +74,6 @@ const Login = () => {
 
   return (
     <div>
-      {/* <LoginPageNavbar /> */}
       <Navbar />
       <div className="main-containers">
         <div className="login-containers">

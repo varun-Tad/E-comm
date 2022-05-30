@@ -1,8 +1,6 @@
 import "./ProdListingPage.css";
 import ProdListingCard from "../../../components/Cards/ProdListingCard";
-import React, { Fragment, useEffect, useState } from "react";
-
-import { ProductsPageData } from "../ProductsPage.data";
+import React, { useEffect, useState } from "react";
 
 import {
   sortProductList,
@@ -18,7 +16,6 @@ import { getCategoriesAndDocuments } from "../../../utils/firebase/firebase.util
 
 const ProdListingPage = () => {
   const { state } = useProduct();
-  const { stateOne } = useWishCart();
 
   const [categoriesMap, setCategoriesMap] = useState({});
 
@@ -37,17 +34,6 @@ const ProdListingPage = () => {
   console.log(Object.keys(categoriesMap));
   const arr = Object.keys(categoriesMap);
 
-  // arr.map((word) => {
-  //   const arr1 = categoriesMap[word];
-  //   arr1.map((item) => {
-  //     console.log(item);
-  //     setObj([...obj, item]);
-  //   });
-  // });
-  // console.log(categoriesMap);
-  // console.log(obj);
-  // console.log(categoriesMap["pants"]);
-
   arr.map((word) => {
     const arr1 = categoriesMap[word];
     arr1.map((item) => {
@@ -57,7 +43,6 @@ const ProdListingPage = () => {
   });
 
   console.log("Products", Products);
-  // const sortedProducts = sortProductList(state.sortOrder, ProductsPageData);
 
   const sortedProducts = sortProductList(state.sortOrder, Products);
 

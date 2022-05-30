@@ -1,22 +1,26 @@
-import PrimaryNavbutton from "../Buttons/PrimaryNavbutton";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Card.css";
 
-function Card(props) {
+const Card = (props) => {
+  let navigate = useNavigate();
+  const buttonHandler = () => {
+    navigate("/Productspage");
+  };
   return (
     <div>
       <div className="card">
-        <div className="image-container">
-          <img className="image" src={props.img} alt="apparel"></img>
-        </div>
+        <img className="image" src={props.img} alt="apparel"></img>
+
         <p>{props.title}</p>
         <div class="link-container">
-          <PrimaryNavbutton text={"Buy now"}></PrimaryNavbutton>
-          <PrimaryNavbutton text={"Bookmark"}></PrimaryNavbutton>
+          <button className="link-container-btn" onClick={buttonHandler}>
+            Buy Now
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Card;
