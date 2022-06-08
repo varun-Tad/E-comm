@@ -12,7 +12,7 @@ const CartItemsDropdown = () => {
         <div className="cart-contents-container">
           <div className="cart-contents">
             <div>{ele.brand}</div>
-            <div>
+            <div className="quantity-price">
               {ele.quantity} X ${ele.price.discountPrice}
             </div>
           </div>

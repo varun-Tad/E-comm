@@ -1,18 +1,18 @@
 /* MAIN CONTAINER */
 
 .main-container {
-  margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-left: 0;
+  padding: 0;
 }
 
 /* IMAGE CONTAINER */
 
 .image-container {
   background-color: var(--color-primary-darker);
-  margin-top: 9rem;
-  height: 90vh;
+  margin-top: 0;
+  height: 100vh;
+  padding-top: 2rem;
 }
 
 .image-container img {

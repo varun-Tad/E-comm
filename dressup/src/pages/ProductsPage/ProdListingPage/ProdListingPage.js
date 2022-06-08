@@ -10,7 +10,6 @@ import {
 } from "../FilterFunctions";
 
 import { useProduct } from "./Product-context";
-import { useWishCart } from "../../CartPage/WishCart-context";
 
 import { getCategoriesAndDocuments } from "../../../utils/firebase/firebase.utils";
 

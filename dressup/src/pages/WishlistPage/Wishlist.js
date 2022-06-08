@@ -13,9 +13,13 @@ function Wishlist() {
       <h1>
         Your WishList({stateOne.WishListItems}) <FaHeart />
       </h1>
-      <div className="wishlist-container">
-        <WishListingPage />
-      </div>
+      {stateOne.WishListItems === 0 ? (
+        <div className="noItemsInWish">No Items in Wishlist</div>
+      ) : (
+        <div className="wishlist-container">
+          <WishListingPage />
+        </div>
+      )}
     </div>
   );
 }

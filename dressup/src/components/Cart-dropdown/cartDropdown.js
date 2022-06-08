@@ -24,7 +24,9 @@ const CartDropdown = () => {
       <div className="cart-items">
         <CartItemsDropdown />
       </div>
-      <button onClick={toggleCart}>Go To Checkout</button>
+      <button className="goToCheckoutBtn" onClick={toggleCart}>
+        Go To Checkout ➜
+      </button>
     </div>
   );
 };

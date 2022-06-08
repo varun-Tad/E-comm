@@ -28,3 +28,9 @@ h1 {
   position: relative;
   top: 200px;
 }
+
+.noItemsInWish {
+  text-align: center;
+  margin: 15rem auto;
+  font-size: 3rem;
+}

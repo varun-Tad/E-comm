@@ -66,7 +66,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="theMain">
       <div className="main-container">
         <div className="image-container">
           <img className="image1" src={img1} alt="apparel" />
