@@ -2,7 +2,7 @@
 
 This is a fully functional E-commerce web app  built using React and firebase  containing the below features
 
-Live Link : ![DressUp]("https://dressupp.netlify.app/")
+Live Link : ![DressUp] ("https://dressupp.netlify.app/")
 
 - Home Page
 - Product listing page
