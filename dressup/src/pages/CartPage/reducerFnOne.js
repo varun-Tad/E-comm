@@ -19,15 +19,9 @@ const reducerFnOne = (stateOne, action) => {
         newCartArr = [...stateOne.Cart, { ...action.value, quantity: 1 }];
       }
 
-      // const totalQuantity = newCartArr.reduce((acc, ItemObj) => {
-      //   return acc + ItemObj.quantity;
-      // }, 0);
-
       const totalPrice = newCartArr.reduce((acc, item) => {
         return acc + item.quantity * item.price.discountPrice;
       }, 0);
-
-      console.log("totalPrice", totalPrice, typeof totalPrice);
 
       return {
         ...stateOne,
@@ -52,10 +46,6 @@ const reducerFnOne = (stateOne, action) => {
       newCartArr = stateOne.Cart.filter(
         (ele) => ele.brand !== action.value.brand
       );
-
-      // const totalQuantity = newCartArr.reduce((acc, ItemObj) => {
-      //   return acc + ItemObj.quantity;
-      // }, 0);
 
       const totalPrice = newCartArr.reduce((acc, item) => {
         return acc + item.quantity * item.price.discountPrice;
@@ -87,9 +77,6 @@ const reducerFnOne = (stateOne, action) => {
         (ele) => ele.brand !== action.value.brand
       );
 
-      // const totalQuantity = newCartArr.reduce((acc, ItemObj) => {
-      //   return acc + ItemObj.quantity;
-      // }, 0);
       toast.success("Item moved from Wishlist", {
         autoClose: 3000,
       });
@@ -107,10 +94,6 @@ const reducerFnOne = (stateOne, action) => {
         action.value.quantity = 1;
       }
       newCartArr = [...stateOne.Cart, action.value];
-
-      // const totalQuantity = newCartArr.reduce((acc, ItemObj) => {
-      //   return acc + ItemObj.quantity;
-      // }, 0);
 
       const totalPrice = newCartArr.reduce((acc, item) => {
         return acc + item.quantity * item.price.discountPrice;

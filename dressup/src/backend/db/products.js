@@ -16,27 +16,6 @@ import img8 from "../../images/MensShirtTwo.webp";
 import img9 from "../../images/MensShirtThree.webp";
 
 export const products = [
-  // {
-  //   __id: uu_id(),
-  //   title: "You Can WIN",
-  //   author: "Shiv Khera",
-  //   price: "5000",
-  //   categoryName: "non-fiction",
-  // },
-  // {
-  //   __id: uu_id(),
-  //   title: "You are Winner",
-  //   author: "Juna_id Qureshi",
-  //   price: "3000",
-  //   categoryName: "horror",
-  // },
-  // {
-  //   __id: uu_id(),
-  //   title: "Think and Grow Rich",
-  //   author: "Shiv Khera",
-  //   price: "1000",
-  //   categoryName: "fiction",
-  // },
   {
     _id: 1,
     imgSrc: img1,
