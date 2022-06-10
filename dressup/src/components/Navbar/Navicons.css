@@ -27,3 +27,15 @@
 .navicon-color {
   height: 5rem;
 }
+
+.sign-btn {
+  width: 100px;
+  height: 40px;
+  border-radius: 3rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--lighter-grey);
+  font-weight: 800;
+  cursor: pointer;
+  margin: 1rem 2rem 0 0;
+}

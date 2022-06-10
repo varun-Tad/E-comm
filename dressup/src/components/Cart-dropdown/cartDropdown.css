@@ -1,0 +1,36 @@
+.Cart-dropdown-container {
+  position: absolute;
+  width: 24rem;
+  height: 34rem;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  top: 90px;
+  right: 40px;
+  z-index: 5;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.cart-items {
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  row-gap: 20px;
+}
+
+.cart-items {
+  overflow: scroll;
+  padding-bottom: 20px;
+}
+
+.goToCheckoutBtn {
+  background-color: var(--color-primary);
+  color: var(--lighter-grey);
+  font-weight: 800;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}

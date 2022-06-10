@@ -10,8 +10,6 @@
   color: var(--color-primary);
   border-bottom: 2px solid var(--light-grey);
   width: 300px;
-  position: relative;
-  left: 600px;
 }
 
 .brand-heading {
@@ -21,8 +19,6 @@
   color: var(--color-primary);
   border-bottom: 2px solid var(--light-grey);
   width: 300px;
-  position: relative;
-  left: 600px;
 }
 
 .footer-sec {

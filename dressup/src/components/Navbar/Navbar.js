@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 
-import { Logo, PrimaryNavbutton, Searchbar, Navicons } from "./index";
+import { Logo, Searchbar, Navicons } from "./index";
+import { UserContext } from "../../contexts/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
-function Navbar() {
+const Navbar = () => {
+  const { currentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+
+    toast.success("Logout successful", {
+      autoClose: 3000,
+    });
+  };
+
   return (
     <div className="main-navbar">
       <div className="left-nav">
         <Logo></Logo>
       </div>
       <div className="right-nav">
-        <PrimaryNavbutton text={"Sign in"}></PrimaryNavbutton>
+        {currentUser ? (
+          <button className="sign-btn" onClick={signOutHandler}>
+            Sign Out
+          </button>
+        ) : (
+          <Link to="/Login">
+            <button className="sign-btn">Sign In</button>
+          </Link>
+        )}
 
         <div className="basic-input-textboxes">
           <Searchbar></Searchbar>
@@ -19,6 +41,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

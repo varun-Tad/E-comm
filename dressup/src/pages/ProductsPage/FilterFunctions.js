@@ -40,7 +40,7 @@ const sortingCatgeories = (categs, ratedProducts) => {
     categs.Pants === false &&
     categs.Watches === false
   ) {
-    return ratedProducts.filter((item) => item.category === "Shirts");
+    return ratedProducts.filter((item) => item.categoryName === "Shirts");
   }
 
   if (
@@ -48,7 +48,7 @@ const sortingCatgeories = (categs, ratedProducts) => {
     categs.Shirts === false &&
     categs.Watches === false
   ) {
-    return ratedProducts.filter((item) => item.category === "Pants");
+    return ratedProducts.filter((item) => item.categoryName === "Pants");
   }
 
   if (
@@ -56,7 +56,7 @@ const sortingCatgeories = (categs, ratedProducts) => {
     categs.Shirts === false &&
     categs.Watches === true
   ) {
-    return ratedProducts.filter((item) => item.category === "Watches");
+    return ratedProducts.filter((item) => item.categoryName === "Watches");
   }
 
   if (
@@ -66,9 +66,9 @@ const sortingCatgeories = (categs, ratedProducts) => {
   ) {
     return ratedProducts.filter(
       (item) =>
-        item.category === "Shirts" ||
-        item.category === "Pants" ||
-        item.category === "Watches"
+        item.categoryName === "Shirts" ||
+        item.categoryName === "Pants" ||
+        item.categoryName === "Watches"
     );
   }
 
@@ -78,7 +78,7 @@ const sortingCatgeories = (categs, ratedProducts) => {
     categs.Watches === false
   ) {
     return ratedProducts.filter(
-      (item) => item.category === "Shirts" || item.category === "Pants"
+      (item) => item.categoryName === "Shirts" || item.categoryName === "Pants"
     );
   }
 
@@ -88,7 +88,7 @@ const sortingCatgeories = (categs, ratedProducts) => {
     categs.Watches === true
   ) {
     return ratedProducts.filter(
-      (item) => item.category === "Pants" || item.category === "Watches"
+      (item) => item.categoryName === "Pants" || item.categoryName === "Watches"
     );
   }
 
@@ -98,7 +98,8 @@ const sortingCatgeories = (categs, ratedProducts) => {
     categs.Watches === true
   ) {
     return ratedProducts.filter(
-      (item) => item.category === "Shirts" || item.category === "Watches"
+      (item) =>
+        item.categoryName === "Shirts" || item.categoryName === "Watches"
     );
   }
 

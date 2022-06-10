@@ -1,0 +1,130 @@
+/* MAIN CONTAINER */
+.main-containers {
+  margin-top: 3rem;
+  width: 80rem;
+  margin-left: 10rem;
+}
+
+/* IMAGE CONTAINER */
+.image-container {
+  background-color: var(--color-primary-darker);
+  margin-top: 9rem;
+  height: 90vh;
+}
+
+.image-container img {
+  width: 300px;
+  height: 200px;
+}
+
+.image-container p {
+  position: relative;
+  top: 24rem;
+  left: 45rem;
+  font-size: 3rem;
+  color: var(--light-grey);
+  font-weight: 800;
+}
+
+/* LOGIN CONTAINER */
+.login-containers {
+  margin: 18rem 0rem 10rem 40rem;
+  border: 2px solid var(--color-white);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 5rem 0 5rem 5rem;
+  min-width: 50rem;
+  border-radius: 1rem;
+}
+
+.forms h2 {
+  margin-left: 16rem;
+  color: var(--color-primary-darker);
+  margin-bottom: 5rem;
+  text-decoration: underline;
+}
+
+.login-inp {
+  border-radius: 4rem;
+  margin-top: 3rem;
+}
+
+.google-texts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  text-align: center;
+  border: 2px solid var(--light-grey);
+  padding: 1rem;
+  width: 80%;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.forms-smallText {
+  color: var(--grey-color);
+  margin-left: 3.5rem;
+}
+
+.forms-smallText:after {
+  content: "_____________";
+}
+
+.forms-smallText:before {
+  content: "_____________";
+}
+
+.check-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-right: 8rem;
+}
+
+.check-box p {
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.badge-portion:hover {
+  background-color: var(--color-primary-opacity);
+}
+
+.btn-secondary {
+  border-radius: 3rem;
+  background-color: var(--color-primary);
+  color: var(--lighter-grey);
+  padding: 0.8rem 2.5rem;
+  margin-left: 9rem;
+  margin-top: 2rem;
+  font-weight: 800;
+  width: 20rem;
+}
+
+.btn-secondary:active,
+.btn-secondary:hover {
+  color: inherit;
+  background-color: var(--color-primary-darker);
+  color: var(--light-grey);
+  opacity: 1;
+}
+
+.forms p {
+  margin-left: 10rem;
+  margin-top: 2rem;
+  color: var(--light-grey);
+}
+
+.forms p a {
+  text-decoration: none;
+  color: var(--color-primary-darker);
+}
+
+.forms p a:hover {
+  text-decoration: underline;
+}

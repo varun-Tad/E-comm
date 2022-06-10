@@ -1,3 +1,4 @@
+import React from "react";
 import "./TrendingSection.css";
 
 import img3 from "../../../images/handbags.jpeg";

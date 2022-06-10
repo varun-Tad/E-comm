@@ -3,6 +3,9 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useWishCart } from "../../CartPage/WishCart-context";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import React from "react";
 
 function WishlistDetails(props) {
   const { stateOne, dispatchOne } = useWishCart();
@@ -32,7 +35,7 @@ function WishlistDetails(props) {
               className="wish-btn btn btn-success btns btn-one"
               onClick={() => {
                 stateOne.Cart.some((e) => e.id === props.WishData.id)
-                  ? console.log("exists")
+                  ? toast.info("Item already exists in Cart")
                   : dispatchOne({ type: "moveToCart", value: props.WishData });
               }}
             >

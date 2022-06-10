@@ -1,37 +1,39 @@
-const addFunc = (state, item) => {
-  const objIndex = state.findIndex((obj) => obj.id === item.id);
-
-  state[objIndex].quantity = item.quantity + 1;
-
-  state[objIndex].newPrice = item.cost * state[objIndex].quantity;
-
-  return state;
-};
-
-const subFunc = (state, item) => {
-  const objIndex = state.findIndex((obj) => obj.id === item.id);
-  if (state[objIndex].quantity === 0) {
-    state[objIndex].quantity = 0;
-  } else {
-    state[objIndex].quantity = item.quantity - 1;
-  }
-
-  state[objIndex].newPrice = item.cost * state[objIndex].quantity;
-
-  return state;
-};
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const reducerFnOne = (stateOne, action) => {
   switch (action.type) {
     case "addProToCart": {
+      let newCartArr = [];
+      const existingItem = stateOne.Cart.find(
+        (item) => item.id === action.value.id
+      );
+
+      if (existingItem) {
+        newCartArr = stateOne.Cart.map((item) =>
+          item.id === action.value.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        newCartArr = [...stateOne.Cart, { ...action.value, quantity: 1 }];
+      }
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        TotalPrice: stateOne.TotalPrice + action.value.cost,
-        CartItems: stateOne.CartItems + 1,
-        Cart: [...stateOne.Cart, action.value],
+        CartTotal: totalPrice,
+        CartCount: newCartArr.length,
+        Cart: [...newCartArr],
       };
     }
     case "addProToWish": {
+      toast.success("Item added to Wishlist", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems + 1,
@@ -39,16 +41,29 @@ const reducerFnOne = (stateOne, action) => {
       };
     }
     case "removeFromCart": {
+      let newCartArr = [];
+
+      newCartArr = stateOne.Cart.filter(
+        (ele) => ele.brand !== action.value.brand
+      );
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+      toast.success("Item removed from Cart", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
-        TotalPrice: stateOne.TotalPrice - action.value.cost,
-        CartItems: stateOne.CartItems - 1,
-        Cart: stateOne.Cart.filter((ele) => {
-          return ele.brand !== action.value.brand;
-        }),
+        CartTotal: totalPrice,
+        CartCount: newCartArr.length,
+        Cart: [...newCartArr],
       };
     }
     case "removeFromWish": {
+      toast.success("Item removed from Wishlist", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems - 1,
@@ -58,40 +73,86 @@ const reducerFnOne = (stateOne, action) => {
       };
     }
     case "moveToWish": {
+      const newCartArr = stateOne.Cart.filter(
+        (ele) => ele.brand !== action.value.brand
+      );
+
+      toast.success("Item moved from Wishlist", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
-        CartItems: stateOne.CartItems - 1,
+        CartCount: newCartArr.length,
         WishListItems: stateOne.WishListItems + 1,
-        Cart: stateOne.Cart.filter((ele) => {
-          return ele.brand !== action.value.brand;
-        }),
+        Cart: [...newCartArr],
         Wishlist: [...stateOne.Wishlist, action.value],
       };
     }
     case "moveToCart": {
+      let newCartArr = [];
+      if (!action.value.quantity) {
+        action.value.quantity = 1;
+      }
+      newCartArr = [...stateOne.Cart, action.value];
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
+      toast.success("Item moved from Cart", {
+        autoClose: 3000,
+      });
       return {
         ...stateOne,
-        TotalPrice: stateOne.TotalPrice + action.value.cost,
-        CartItems: stateOne.CartItems + 1,
+        CartTotal: totalPrice,
+        CartCount: newCartArr.length,
         WishListItems: stateOne.WishListItems - 1,
         Wishlist: stateOne.Wishlist.filter((ele) => {
           return ele.brand !== action.value.brand;
         }),
-        Cart: [...stateOne.Cart, action.value],
+        Cart: [...newCartArr],
       };
     }
     case "inc": {
-      const newState = addFunc(stateOne.Product, action.value);
+      let newCartArr = [];
+
+      newCartArr = stateOne.Cart.map((item) =>
+        item.id === action.value.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        Product: [...newState],
+        CartTotal: totalPrice,
+        Cart: [...newCartArr],
       };
     }
     case "dec": {
-      const newState = subFunc(stateOne.Product, action.value);
+      let newCartArr = [];
+
+      if (action.value.quantity === 1) {
+        newCartArr = stateOne.Cart.filter((ele) => ele.id !== action.value.id);
+      } else {
+        newCartArr = stateOne.Cart.map((item) =>
+          item.id === action.value.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      }
+
+      const totalPrice = newCartArr.reduce((acc, item) => {
+        return acc + item.quantity * item.price.discountPrice;
+      }, 0);
+
       return {
         ...stateOne,
-        Product: [...newState],
+        CartTotal: totalPrice,
+        Cart: [...newCartArr],
       };
     }
     default:

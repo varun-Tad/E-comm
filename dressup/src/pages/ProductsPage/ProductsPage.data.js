@@ -19,8 +19,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 3,
-    category: "Pants",
-    quantity: 0,
+    categoryName: "Pants",
   },
   {
     id: 2,
@@ -32,8 +31,7 @@ export const ProductsPageData = [
       discount: 45,
     },
     rating: 4,
-    quantity: 0,
-    category: "Pants",
+    categoryName: "Pants",
   },
   {
     id: 3,
@@ -45,21 +43,19 @@ export const ProductsPageData = [
       discount: 10,
     },
     rating: 4,
-    quantity: 0,
-    category: "Shirts",
+    categoryName: "Shirts",
   },
   {
     id: 4,
     imgSrc: img4,
-    brand: "U.S. Polo Assn. Denim Co",
+    brand: "U.S. Polo Assn. Denims Co",
     price: {
       actualPrice: 3599,
       discountPrice: 2699,
       discount: 25,
     },
     rating: 2,
-    quantity: 0,
-    category: "Pants",
+    categoryName: "Pants",
   },
   {
     id: 5,
@@ -71,8 +67,7 @@ export const ProductsPageData = [
       discount: 65,
     },
     rating: 5,
-    quantity: 0,
-    category: "Watches",
+    categoryName: "Watches",
   },
   {
     id: 6,
@@ -84,8 +79,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 3,
-    quantity: 0,
-    category: "Watches",
+    categoryName: "Watches",
   },
   {
     id: 7,
@@ -97,8 +91,7 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 4,
-    quantity: 0,
-    category: "Watches",
+    categoryName: "Watches",
   },
   {
     id: 8,
@@ -110,8 +103,7 @@ export const ProductsPageData = [
       discount: 45,
     },
     rating: 3,
-    quantity: 0,
-    category: "Shirts",
+    categoryName: "Shirts",
   },
   {
     id: 9,
@@ -123,7 +115,6 @@ export const ProductsPageData = [
       discount: 40,
     },
     rating: 2,
-    quantity: 0,
-    category: "Shirts",
+    categoryName: "Shirts",
   },
 ];

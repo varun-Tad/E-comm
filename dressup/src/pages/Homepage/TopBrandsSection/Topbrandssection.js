@@ -1,3 +1,4 @@
+import React from "react";
 import "./Topbrandssection.css";
 
 import { img6, img7, img8, img9, img10, img11, img12, img13 } from "../index";

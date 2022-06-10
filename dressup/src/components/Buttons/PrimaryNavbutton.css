@@ -15,3 +15,8 @@
   color: var(--light-grey);
   opacity: 1;
 }
+
+.btnLink {
+  text-decoration: none;
+  color: var(--lighter-grey);
+}

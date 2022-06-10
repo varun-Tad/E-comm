@@ -1,3 +1,4 @@
+import React from "react";
 import { useProduct } from "../ProdListingPage/Product-context";
 import "./FilterSection.css";
 

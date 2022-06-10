@@ -1,20 +1,27 @@
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
 import { ProductsPageData } from "../ProductsPage/ProductsPage.data";
 import { reducerFnOne } from "./reducerFnOne";
 
-const WishCartContext = createContext(null);
+const WishCartContext = createContext({
+  Product: [...ProductsPageData],
+  Cart: [],
+  Wishlist: [],
+  CartCount: 0,
+  WishListItems: 0,
+  CartTotal: 0,
+});
 
 const useWishCart = () => useContext(WishCartContext);
 
 const WishCartProvier = ({ children }) => {
   const [stateOne, dispatchOne] = useReducer(reducerFnOne, {
-    Product: ProductsPageData,
+    Product: [...ProductsPageData],
     Cart: [],
     Wishlist: [],
-    CartItems: 0,
+    CartCount: 0,
     WishListItems: 0,
-    TotalPrice: 0,
+    CartTotal: 0,
   });
 
   return (

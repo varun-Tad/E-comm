@@ -16,3 +16,19 @@
   font-family: "Caveat", cursive;
   font-weight: 900;
 }
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.link-container-btn {
+  width: 100px;
+  height: 40px;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--lighter-grey);
+  font-weight: 800;
+  cursor: pointer;
+}
