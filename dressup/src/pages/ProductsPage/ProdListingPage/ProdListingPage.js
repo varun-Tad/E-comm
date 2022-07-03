@@ -11,37 +11,22 @@ import {
 
 import { useProduct } from "./Product-context";
 
-import { getCategoriesAndDocuments } from "../../../utils/firebase/firebase.utils";
+import ProductDataService from "../../../utils/firebaseServices/product.services";
 
 const ProdListingPage = () => {
   const { state } = useProduct();
 
-  const [categoriesMap, setCategoriesMap] = useState({});
-
-  let Products = [];
+  const [Products, setProducts] = useState([]);
 
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      console.log(categoryMap);
-      setCategoriesMap(categoryMap);
-    };
-
-    getCategoriesMap();
+    getProducts();
   }, []);
 
-  console.log(Object.keys(categoriesMap));
-  const arr = Object.keys(categoriesMap);
-
-  arr.map((word) => {
-    const arr1 = categoriesMap[word];
-    arr1.map((item) => {
-      console.log("item", item);
-      Products = [...Products, item];
-    });
-  });
-
-  console.log("Products", Products);
+  const getProducts = async () => {
+    const data = await ProductDataService.getAllProduct();
+    setProducts(data.docs.map((doc) => ({ ...doc.data(), theId: doc.id })));
+    console.log(Products);
+  };
 
   const sortedProducts = sortProductList(state.sortOrder, Products);
 

@@ -15,9 +15,9 @@ function CartDetails(props) {
           <div className="card-text">
             <h4>{props.CartData.brand}</h4>
             <p>
-              ₹{props.CartData.price.discountPrice}{" "}
-              <span>₹{props.CartData.price.actualPrice}</span> (
-              {props.CartData.price.discount}%OFF)
+              ₹{props.CartData.discountPrice}{" "}
+              <span>₹{props.CartData.actualPrice}</span> (
+              {props.CartData.discount}%OFF)
             </p>
           </div>
           <div className="quantity-btns">

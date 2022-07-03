@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
 import React from "react";
 
+import img1 from "../../images/jeans.jpeg";
+
 function ProdListingCard(props) {
   const { stateOne, dispatchOne } = useWishCart();
 
@@ -19,9 +21,9 @@ function ProdListingCard(props) {
         <div className="card-text-contain">
           <h4>{props.prodData.brand}</h4>
           <p>
-            ₹ {props.prodData.price.discountPrice}{" "}
-            <span>₹{props.prodData.price.actualPrice}</span>(
-            {props.prodData.price.discount}% OFF)
+            ₹ {props.prodData.discountPrice}{" "}
+            <span>₹{props.prodData.actualPrice}</span>({props.prodData.discount}
+            % OFF)
           </p>
           <p className="rate">
             {props.prodData.rating} <FaStar className="star"></FaStar>| 5

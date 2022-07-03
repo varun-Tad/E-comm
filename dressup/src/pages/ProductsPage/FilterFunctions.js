@@ -3,13 +3,9 @@ import { ProductsPageData } from "./ProductsPage.data";
 const sortProductList = (order, products) => {
   switch (order) {
     case "highToLow":
-      return products.sort(
-        (a, b) => b.price.discountPrice - a.price.discountPrice
-      );
+      return products.sort((a, b) => b.discountPrice - a.discountPrice);
     case "lowToHigh":
-      return products.sort(
-        (a, b) => a.price.discountPrice - b.price.discountPrice
-      );
+      return products.sort((a, b) => a.discountPrice - b.discountPrice);
     default:
       return products;
   }
@@ -28,7 +24,7 @@ const sortRatingList = (rate, sortedProducts) => {
     case "OneStar":
       return sortedProducts.filter((item) => item.rating === 1);
     case "All":
-      return ProductsPageData;
+      return sortedProducts;
     default:
       return sortedProducts;
   }
@@ -107,7 +103,7 @@ const sortingCatgeories = (categs, ratedProducts) => {
 };
 
 const sortPriceRange = (theValue, checkBoxProducts) => {
-  return checkBoxProducts.filter((item) => item.price.discountPrice < theValue);
+  return checkBoxProducts.filter((item) => item.discountPrice < theValue);
 };
 
 export { sortProductList, sortRatingList, sortingCatgeories, sortPriceRange };

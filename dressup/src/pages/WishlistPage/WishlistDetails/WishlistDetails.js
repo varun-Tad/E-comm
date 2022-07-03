@@ -22,9 +22,9 @@ function WishlistDetails(props) {
               <FaHeart className="heart-color" />
             </h4>
             <p>
-              ₹{props.WishData.price.discountPrice}{" "}
-              <span>₹{props.WishData.price.actualPrice}</span> (
-              {props.WishData.price.discount}% OFF)
+              ₹{props.WishData.discountPrice}{" "}
+              <span>₹{props.WishData.actualPrice}</span> (
+              {props.WishData.discount}% OFF)
             </p>
             <p className="rate">
               5 <FaStar className="star-color" />| 5

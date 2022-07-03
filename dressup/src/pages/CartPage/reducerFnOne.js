@@ -1,6 +1,21 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import CartDataService from "../../utils/firebaseServices/cart.services";
+import WishlistDataService from "../../utils/firebaseServices/wishlist.services";
+
+let newCart = [];
+let newWishlist = [];
+let arrFromDb = [];
+
+const addToWishList = async (ele) => {
+  try {
+    await WishlistDataService.addWishlist(ele);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 const reducerFnOne = (stateOne, action) => {
   switch (action.type) {
     case "addProToCart": {
@@ -20,7 +35,7 @@ const reducerFnOne = (stateOne, action) => {
       }
 
       const totalPrice = newCartArr.reduce((acc, item) => {
-        return acc + item.quantity * item.price.discountPrice;
+        return acc + item.quantity * item.discountPrice;
       }, 0);
 
       return {
@@ -34,6 +49,11 @@ const reducerFnOne = (stateOne, action) => {
       toast.success("Item added to Wishlist", {
         autoClose: 3000,
       });
+
+      addToWishList(action.value);
+
+      console.log("newWishlist", newWishlist);
+
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems + 1,
@@ -48,7 +68,7 @@ const reducerFnOne = (stateOne, action) => {
       );
 
       const totalPrice = newCartArr.reduce((acc, item) => {
-        return acc + item.quantity * item.price.discountPrice;
+        return acc + item.quantity * item.discountPrice;
       }, 0);
       toast.success("Item removed from Cart", {
         autoClose: 3000,
@@ -96,7 +116,7 @@ const reducerFnOne = (stateOne, action) => {
       newCartArr = [...stateOne.Cart, action.value];
 
       const totalPrice = newCartArr.reduce((acc, item) => {
-        return acc + item.quantity * item.price.discountPrice;
+        return acc + item.quantity * item.discountPrice;
       }, 0);
 
       toast.success("Item moved from Cart", {
@@ -123,7 +143,7 @@ const reducerFnOne = (stateOne, action) => {
       );
 
       const totalPrice = newCartArr.reduce((acc, item) => {
-        return acc + item.quantity * item.price.discountPrice;
+        return acc + item.quantity * item.discountPrice;
       }, 0);
 
       return {
@@ -146,7 +166,7 @@ const reducerFnOne = (stateOne, action) => {
       }
 
       const totalPrice = newCartArr.reduce((acc, item) => {
-        return acc + item.quantity * item.price.discountPrice;
+        return acc + item.quantity * item.discountPrice;
       }, 0);
 
       return {

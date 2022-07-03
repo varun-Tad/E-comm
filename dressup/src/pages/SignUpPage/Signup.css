@@ -173,3 +173,13 @@
 .form p a:hover {
   text-decoration: underline;
 }
+
+.show-pwd {
+  margin-left: 1.5rem;
+  color: var(--color-primary-darker);
+  cursor: pointer;
+}
+
+.show-pwd small:hover {
+  text-decoration: underline;
+}

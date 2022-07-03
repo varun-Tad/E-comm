@@ -24,8 +24,8 @@ const defaultFormFields = {
 const Signup = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  console.log(formFields);
+  const [pwdType, setpwdType] = useState("password");
+  const [pwdText, setPwdText] = useState("Show password");
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -63,6 +63,13 @@ const Signup = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
+  };
+
+  const pwdHandler = () => {
+    pwdType === "password" ? setpwdType("text") : setpwdType("password");
+    pwdText === "Show password"
+      ? setPwdText("Hide password")
+      : setPwdText("Show password");
   };
 
   return (
@@ -107,7 +114,7 @@ const Signup = () => {
               <label></label>
               <input
                 className="basic-input-box inp-btn login-inp"
-                type="password"
+                type={pwdType}
                 placeholder="Enter Password"
                 required
                 onChange={handleChange}
@@ -115,11 +122,15 @@ const Signup = () => {
                 value={password}
               />
             </div>
+            <div className="show-pwd">
+              <small onClick={pwdHandler}>{pwdText}</small>
+            </div>
+
             <div className="basic-input-textboxes">
               <label></label>
               <input
                 className="basic-input-box inp-btn login-inp"
-                type="password"
+                type={pwdType}
                 placeholder="Confirm Password"
                 required
                 onChange={handleChange}
@@ -127,15 +138,10 @@ const Signup = () => {
                 value={confirmPassword}
               />
             </div>
-
-            <div className="check-box">
-              <div>
-                <input type="checkbox" />
-                <label>
-                  I agree to the <span>Terms & Conditions</span>
-                </label>
-              </div>
+            <div className="show-pwd">
+              <small onClick={pwdHandler}>{pwdText}</small>
             </div>
+
             <button type="submit" className="btn btn-secondary btns">
               Sign Up
             </button>
