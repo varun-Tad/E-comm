@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 5rem;
-  width: 60%;
+  /* width: 60%; */
   margin-left: 30rem;
   margin-bottom: 10rem;
 }
@@ -39,6 +39,7 @@
   border-radius: 3rem;
   border: none;
   box-shadow: 0 9px #999;
+  margin-top: 2rem;
 }
 
 .proceedToBuyBtn:active {
@@ -48,10 +49,30 @@
 
 .proccedToBuySection {
   display: flex;
+  gap: 15rem;
 }
 
 .noItemsInCart {
   text-align: center;
   margin: 15rem auto;
   font-size: 3rem;
+}
+
+.bill {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.bill-items {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3rem;
+  margin-top: 1rem;
 }

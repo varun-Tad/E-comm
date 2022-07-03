@@ -18,7 +18,17 @@ function Cart() {
           <CartListingPage />
           <div className="proccedToBuySection">
             <h2>Total : ₹{stateOne.CartTotal}</h2>
-            <button className="proceedToBuyBtn">Proceed to Buy</button>
+            <div className="bill">
+              {stateOne.Cart.map((ele) => (
+                <div className="bill-items ">
+                  <div>{ele.brand}</div>
+                  <div>
+                    {ele.quantity} X ₹{ele.discountPrice}
+                  </div>
+                </div>
+              ))}
+              <button className="proceedToBuyBtn">Proceed to Buy</button>
+            </div>
           </div>
         </div>
       )}
