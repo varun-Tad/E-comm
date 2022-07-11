@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
       if (user) {
         createUserDocumentFromAuth(user); //Here if logged in create a document for the user
         setCurrentUser(user);
-        navigate(-1);
+        // navigate(-1);
       } else {
         setCurrentUser(user);
         navigate("/");
