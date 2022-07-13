@@ -1,20 +1,14 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { doc } from "firebase/firestore";
+
 import CartDataService from "../../utils/firebaseServices/cart.services";
 import WishlistDataService from "../../utils/firebaseServices/wishlist.services";
 
 let newCart = [];
 let newWishlist = [];
 let arrFromDb = [];
-
-const addToWishList = async (ele) => {
-  try {
-    await WishlistDataService.addWishlist(ele);
-  } catch (err) {
-    console.log(err.message);
-  }
-};
 
 const reducerFnOne = (stateOne, action) => {
   switch (action.type) {
@@ -50,8 +44,6 @@ const reducerFnOne = (stateOne, action) => {
         autoClose: 3000,
       });
 
-      addToWishList(action.value);
-
       console.log("newWishlist", newWishlist);
 
       return {
@@ -84,6 +76,7 @@ const reducerFnOne = (stateOne, action) => {
       toast.success("Item removed from Wishlist", {
         autoClose: 3000,
       });
+
       return {
         ...stateOne,
         WishListItems: stateOne.WishListItems - 1,

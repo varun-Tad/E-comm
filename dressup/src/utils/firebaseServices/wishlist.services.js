@@ -17,12 +17,16 @@ class WishlistDataService {
   };
 
   updateWishlist = (theId, updatedCart) => {
-    const wishdoc = doc(db, "Cart", theId);
+    const wishdoc = doc(db, "Wishlist", theId);
+
     return updateDoc(wishdoc, updatedCart);
   };
 
   deleteWishlist = (theId) => {
-    const wishdoc = doc(db, "Cart", theId);
+    const wishdoc = doc(db, "Wishlist", theId);
+    console.log(doc(db, "Wishlist", theId));
+    console.log("calling.....");
+    console.log(theId);
     return deleteDoc(wishdoc);
   };
 
@@ -31,7 +35,7 @@ class WishlistDataService {
   };
 
   getWishlist = (theId) => {
-    const wishdoc = doc(db, "Cart", theId);
+    const wishdoc = doc(db, "Wishlist", theId);
     return getDoc(wishdoc);
   };
 }
