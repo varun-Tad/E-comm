@@ -10,6 +10,35 @@ let newCart = [];
 let newWishlist = [];
 let arrFromDb = [];
 
+// const getWishlist = async () => {
+//   console.log("getWishList called");
+//   const data = await WishlistDataService.getAllWishlist();
+//   // setProducts(data.docs.map((doc) => ({ ...doc.data(), theId: doc.id })));
+//   const wishListtheData = data.docs.map((doc) => ({
+//     ...doc.data(),
+//     // theId: doc.id,
+//   }));
+//   console.log(wishListtheData);
+// };
+
+const addToWishList = async (ele) => {
+  try {
+    const data = await WishlistDataService.addWishlist(ele);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+const deleteFromWishList = async (ele) => {
+  try {
+    await WishlistDataService.deleteWishlist();
+
+    // getWishlist();
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
 const reducerFnOne = (stateOne, action) => {
   switch (action.type) {
     case "addProToCart": {
@@ -44,6 +73,8 @@ const reducerFnOne = (stateOne, action) => {
         autoClose: 3000,
       });
 
+      addToWishList(action.value);
+
       console.log("newWishlist", newWishlist);
 
       return {
@@ -76,6 +107,8 @@ const reducerFnOne = (stateOne, action) => {
       toast.success("Item removed from Wishlist", {
         autoClose: 3000,
       });
+
+      deleteFromWishList(action.value);
 
       return {
         ...stateOne,
