@@ -9,7 +9,7 @@ function CartDetails(props) {
     <div>
       <div className="checkout-card">
         <div className="checkout-card-img">
-          <img src={props.CartData.imgSrc} alt="apparel"></img>
+          <img loading="lazy" src={props.CartData.imgSrc} alt="apparel"></img>
         </div>
         <div className="column-two">
           <div className="card-text">

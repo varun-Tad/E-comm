@@ -17,15 +17,21 @@ const ProdListingPage = () => {
   const { state } = useProduct();
 
   const [Products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getProducts();
   }, []);
 
   const getProducts = async () => {
-    const data = await ProductDataService.getAllProduct();
-    setProducts(data.docs.map((doc) => ({ ...doc.data(), theId: doc.id })));
-    console.log(Products);
+    try {
+      setLoading(true);
+      const data = await ProductDataService.getAllProduct();
+      setProducts(data.docs.map((doc) => ({ ...doc.data(), theId: doc.id })));
+      setLoading(false);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const sortedProducts = sortProductList(state.sortOrder, Products);
@@ -38,8 +44,7 @@ const ProdListingPage = () => {
 
   return (
     <div className="card-vessel">
-      {/* loading to be done */}
-
+      {loading && <h4 className="loader"></h4>}
       {RangedProducts.map((item) => {
         return (
           <ProdListingCard key={item.id} prodData={item}></ProdListingCard>

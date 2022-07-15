@@ -15,7 +15,7 @@ function ProdListingCard(props) {
   return (
     <div className="card-content">
       <div className="image-contain">
-        <img src={props.prodData.imgSrc} alt="Jeans"></img>
+        <img loading="lazy" src={props.prodData.imgSrc} alt="apparel"></img>
       </div>
       <div className="card-wrap">
         <div className="card-text-contain">
