@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useWishCart } from "../../CartPage/WishCart-context";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 

@@ -17,6 +17,9 @@
   --darker-grey: #444;
   --light-grey: #333;
   --lighter-grey: #222;
+  --dark-grey: #999;
+  --li-grey: #666;
+  --slider-grey: #d3d3d3;
   --footer-color: #37383d;
   --hover-light-grey: #eee;
   --heart-red: #fc0303;
@@ -25,6 +28,7 @@
   --black-border: #000000;
   --footer-color: #37383d;
   --hover-light-grey: #eee;
+  --color-black: #000000;
 }
 
 * {

@@ -15,7 +15,6 @@ import ProductDataService from "../../../utils/firebaseServices/product.services
 
 const ProdListingPage = () => {
   const { state } = useProduct();
-
   const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -35,16 +34,13 @@ const ProdListingPage = () => {
   };
 
   const sortedProducts = sortProductList(state.sortOrder, Products);
-
   const ratedProducts = sortRatingList(state.rating, sortedProducts);
-
   const checkBoxProducts = sortingCatgeories(state.categories, ratedProducts);
-
   const RangedProducts = sortPriceRange(state.theValue, checkBoxProducts);
 
   return (
     <div className="card-vessel">
-      {loading && <h4 className="loader"></h4>}
+      {loading && <div className="loader"></div>}
       {RangedProducts.map((item) => {
         return (
           <ProdListingCard key={item.id} prodData={item}></ProdListingCard>

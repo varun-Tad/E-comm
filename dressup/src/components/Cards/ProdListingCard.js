@@ -1,3 +1,4 @@
+import React from "react";
 import "./ProdListingCard.css";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
@@ -5,9 +6,6 @@ import { FaShoppingCart } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
-import React from "react";
-
-import img1 from "../../images/jeans.jpeg";
 
 function ProdListingCard(props) {
   const { stateOne, dispatchOne } = useWishCart();

@@ -1,20 +1,3 @@
-/* .cart-contents {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 15px;
-}
-
-.cart-contents-container {
-  row-gap: 20px;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--color-primary-darker);
-  padding-left: 2px;
-  border-radius: 0.5rem;
-} */
-
 .cart-contents {
   font-size: 20px;
   font-weight: 600;

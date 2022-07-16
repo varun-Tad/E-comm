@@ -1,5 +1,3 @@
-import { ProductsPageData } from "./ProductsPage.data";
-
 const sortProductList = (order, products) => {
   switch (order) {
     case "highToLow":

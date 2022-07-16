@@ -12,7 +12,6 @@ function ProductsPage() {
   return (
     <div className="productPageBody">
       <Navbar />
-
       <section className="prod-land">
         <FilterSection />
         <ProdListingPage />
