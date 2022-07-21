@@ -1,18 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Navbar.css";
 
 import { Logo, Navicons } from "./index";
-// import { UserContext } from "../../contexts/user.context";
-// import { signOutUser } from "../../utils/firebase/firebase.utils";
+
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  // const { currentUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   const signOutHandler = (e) => {
-    // await signOutUser();
     e.preventDefault();
     localStorage.removeItem("tokens");
     navigate("/");
@@ -37,11 +34,6 @@ const Navbar = () => {
             <button className="sign-btn">Sign In</button>
           </Link>
         )}
-
-        {/* <Link to="/Login">
-          <button className="sign-btn">Sign In</button>
-        </Link> */}
-
         <div className="basic-input-textboxes"></div>
         <Navicons></Navicons>
       </div>

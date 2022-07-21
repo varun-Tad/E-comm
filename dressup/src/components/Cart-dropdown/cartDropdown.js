@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/cart.context";
-// import { UserContext } from "../../contexts/user.context";
 import CartItemsDropdown from "../Cart-items-dropdown/CartItemsDropdown";
 import "./cartDropdown.css";
 
 const CartDropdown = () => {
   let navigate = useNavigate();
   const { isCartOpen, setIsCartOpen } = useCart();
-  // const { currentUser } = useContext(UserContext);
 
   const toggleCart = () => {
     if (localStorage.getItem("tokens")) {

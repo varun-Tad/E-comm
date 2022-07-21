@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaShoppingCart, FaRegHeart } from "../../assets/icons";
 
 import CartDropdown from "../Cart-dropdown/cartDropdown";
 import "./Navicons.css";
 import { useCart } from "../../contexts/cart.context";
-// import { UserContext } from "../../contexts/user.context";
 import { useNavigate } from "react-router-dom";
 
 function Navicons() {
   const { isCartOpen, setIsCartOpen } = useCart();
-  // const { currentUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   const toggleCart = () => {
@@ -17,11 +15,6 @@ function Navicons() {
   };
 
   const wishListClick = () => {
-    // if (currentUser) {
-    //   navigate("/Wishlist");
-    // } else {
-    //   navigate("/Login");
-    // }
     navigate("/Wishlist");
   };
 

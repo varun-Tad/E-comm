@@ -5,14 +5,8 @@ import img1 from "../../images/sport-shoes.webp";
 import img2 from "../../images/Red-kurta.webp";
 import img3 from "../../images/handbags.jpeg";
 import img4 from "../../images/watch.jpeg";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
-
-// import {
-//   createAuthUserWithEmailAndPassword,
-//   createUserDocumentFromAuth,
-// } from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
   FirstName: "",
@@ -35,32 +29,6 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // if (password !== confirmPassword) {
-    //   toast.error("Passwords do not match", {
-    //     autoClose: 3000,
-    //   });
-    //   return;
-    // }
-
-    // try {
-    //   const { user } = await createAuthUserWithEmailAndPassword(
-    //     email,
-    //     password
-    //   );
-
-    //   await createUserDocumentFromAuth(user, { displayName });
-    //   resetFormFields();
-    // } catch (error) {
-    //   if (error.code === "auth/email-a;ready-in-use") {
-    //     toast.error("Cannot create user.Email already in use", {
-    //       autoClose: 3000,
-    //     });
-    //   } else {
-    //     console.error("user creation encountered an error", error);
-    //   }
-    // }
-
     try {
       const response = await axios.post("/api/auth/signup", {
         firstName: FirstName,
@@ -68,8 +36,7 @@ const Signup = () => {
         email: email,
         password: Password,
       });
-      // console.log(response);
-      // console.log("new user signed up")
+
       navigate("/");
       localStorage.setItem(`tokens`, response.data.encodedToken);
       resetFormFields();

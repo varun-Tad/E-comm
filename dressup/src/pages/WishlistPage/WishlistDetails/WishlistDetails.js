@@ -9,7 +9,7 @@ import axios from "axios";
 import React from "react";
 
 function WishlistDetails(props) {
-  const { stateOne, dispatchOne } = useWishCart();
+  const { dispatchOne } = useWishCart();
 
   const removeWish = async (_id) => {
     const response = await axios({
@@ -55,31 +55,12 @@ function WishlistDetails(props) {
             </p>
           </div>
           <div className="button-text-contain">
-            {/* <button
-              className="wish-btn btn btn-success btns btn-one"
-              onClick={() => {
-                stateOne.Cart.some((e) => e.id === props.WishData.id)
-                  ? toast.info("Item already exists in Cart")
-                  : dispatchOne({ type: "moveToCart", value: props.WishData });
-              }}
-            >
-              <FaShoppingCart /> Move to Cart
-            </button> */}
             <button
               className="wish-btn btn btn-success btns btn-one"
               onClick={() => moveCart(props.WishData._id, props.WishData)}
             >
               <FaShoppingCart /> Move to Cart
             </button>
-
-            {/* <button
-              className="btn btn-success btns btn-two"
-              onClick={() =>
-                dispatchOne({ type: "removeFromWish", value: props.WishData })
-              }
-            >
-              Remove from Wishlist
-            </button> */}
             <button
               className="btn btn-success btns btn-two"
               onClick={() => {

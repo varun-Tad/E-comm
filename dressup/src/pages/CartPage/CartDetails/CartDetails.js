@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 function CartDetails(props) {
-  const { stateOne, dispatchOne } = useWishCart();
+  const { dispatchOne } = useWishCart();
 
   const removeCart = async (_id) => {
     const response = await axios({
@@ -65,13 +65,6 @@ function CartDetails(props) {
             </p>
           </div>
           <div className="quantity-btns">
-            {/* <button
-              onClick={() =>
-                dispatchOne({ type: "inc", value: props.CartData })
-              }
-            >
-              +
-            </button> */}
             <button onClick={() => updateQuantity("increment", props.CartData)}>
               +
             </button>
@@ -79,23 +72,8 @@ function CartDetails(props) {
             <button onClick={() => updateQuantity("decrement", props.CartData)}>
               -
             </button>
-            {/* <button
-              onClick={() =>
-                dispatchOne({ type: "dec", value: props.CartData })
-              }
-            >
-              -
-            </button> */}
           </div>
           <div className="foot-btns">
-            {/* <button
-              className=" cart-btn btn btn-success btns buyNow-btn"
-              onClick={() =>
-                dispatchOne({ type: "removeFromCart", value: props.CartData })
-              }
-            >
-              <FaShoppingCart></FaShoppingCart> Remove from Cart
-            </button> */}
             <button
               className=" cart-btn btn btn-success btns buyNow-btn"
               onClick={() => {
@@ -107,16 +85,7 @@ function CartDetails(props) {
             >
               <FaShoppingCart></FaShoppingCart> Remove from Cart
             </button>
-            {/* <button
-              className="cart-btn btn btn-success btns buyNow-btn"
-              onClick={() => {
-                stateOne.Wishlist.some((e) => e.id === props.CartData.id)
-                  ? console.log("exists")
-                  : dispatchOne({ type: "moveToWish", value: props.CartData });
-              }}
-            >
-              Move to wishlist{" "}
-            </button> */}
+
             <button
               className="cart-btn btn btn-success btns buyNow-btn"
               onClick={() => moveToWish(props.CartData._id, props.CartData)}

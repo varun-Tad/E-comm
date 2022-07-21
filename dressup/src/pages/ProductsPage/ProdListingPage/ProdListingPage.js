@@ -12,39 +12,23 @@ import {
 
 import { useProduct } from "./Product-context";
 
-import ProductDataService from "../../../utils/firebaseServices/product.services";
-
 const ProdListingPage = () => {
   const { state } = useProduct();
   const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   getProducts();
-  // }, []);
-
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         const response = await axios.get("/api/products");
-        console.log("Products from mockbee api", response.data.products);
         setProducts(response.data.products);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
     })();
   }, []);
-
-  // const getProducts = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const data = await ProductDataService.getAllProduct();
-  //     setProducts(data.docs.map((doc) => ({ ...doc.data(), theId: doc.id })));
-  //     setLoading(false);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   const sortedProducts = sortProductList(state.sortOrder, Products);
   const ratedProducts = sortRatingList(state.rating, sortedProducts);

@@ -31,6 +31,9 @@ function ProdListingCard(props) {
         headers: { authorization: localStorage.getItem("tokens") },
         data: { product: productData },
       });
+      toast.success("Item Added to Cart", {
+        autoClose: 3000,
+      });
       dispatchOne({ type: "addProToCart", payload: response.data.cart });
     } else {
       navigateToLogin();
@@ -67,17 +70,6 @@ function ProdListingCard(props) {
           </p>
         </div>
         <div className="button-text-contain">
-          {/* <button
-            className="btn btn-success btns btn-one"
-            onClick={() => {
-              toast.success("Item added to Cart", {
-                autoClose: 3000,
-              });
-              dispatchOne({ type: "addProToCart", value: props.prodData });
-            }}
-          >
-            <FaShoppingCart></FaShoppingCart> Add to Cart
-          </button> */}
           {stateOne.Cart.some((item) => item.id === props.prodData.id) ? (
             <button
               className="btn btn-success btns btn-one"
@@ -89,28 +81,12 @@ function ProdListingCard(props) {
             <button
               className="btn btn-success btns btn-one"
               onClick={() => {
-                toast.success("Item Added from Cart", {
-                  autoClose: 3000,
-                });
                 addProdToCart(props.prodData);
               }}
             >
               <FaShoppingCart></FaShoppingCart> Add to Cart
             </button>
           )}
-
-          {/* <button
-            className="btn btn-success btns btn-two"
-            onClick={() => {
-              stateOne.Wishlist.some((e) => e.id === props.prodData.id)
-                ? toast.info("Item already exists in wishlist", {
-                    autoClose: 3000,
-                  })
-                : dispatchOne({ type: "addProToWish", value: props.prodData });
-            }}
-          >
-            <FaHeart className="heart"></FaHeart> Add to wishlist
-          </button> */}
 
           {stateOne.Wishlist.some((item) => item.id === props.prodData.id) ? (
             <button

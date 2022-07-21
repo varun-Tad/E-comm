@@ -2,7 +2,7 @@ import React from "react";
 import Homepage from "./pages/Homepage/Homepage";
 import Login from "./pages/LoginPage/Login";
 import Signup from "./pages/SignUpPage/Signup";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
