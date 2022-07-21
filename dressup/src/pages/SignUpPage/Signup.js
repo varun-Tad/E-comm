@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 import "./Signup.css";
 import img1 from "../../images/sport-shoes.webp";
 import img2 from "../../images/Red-kurta.webp";
@@ -7,25 +7,27 @@ import img3 from "../../images/handbags.jpeg";
 import img4 from "../../images/watch.jpeg";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+// import {
+//   createAuthUserWithEmailAndPassword,
+//   createUserDocumentFromAuth,
+// } from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
-  displayName: "",
+  FirstName: "",
+  LastName: "",
   email: "",
-  password: "",
-  confirmPassword: "",
+  Password: "",
 };
 
 const Signup = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { displayName, email, password, confirmPassword } = formFields;
+  const { FirstName, email, LastName, Password } = formFields;
   const [pwdType, setpwdType] = useState("password");
   const [pwdText, setPwdText] = useState("Show password");
+
+  let navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -34,29 +36,45 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match", {
-        autoClose: 3000,
-      });
-      return;
-    }
+    // if (password !== confirmPassword) {
+    //   toast.error("Passwords do not match", {
+    //     autoClose: 3000,
+    //   });
+    //   return;
+    // }
+
+    // try {
+    //   const { user } = await createAuthUserWithEmailAndPassword(
+    //     email,
+    //     password
+    //   );
+
+    //   await createUserDocumentFromAuth(user, { displayName });
+    //   resetFormFields();
+    // } catch (error) {
+    //   if (error.code === "auth/email-a;ready-in-use") {
+    //     toast.error("Cannot create user.Email already in use", {
+    //       autoClose: 3000,
+    //     });
+    //   } else {
+    //     console.error("user creation encountered an error", error);
+    //   }
+    // }
 
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await createUserDocumentFromAuth(user, { displayName });
+      const response = await axios.post("/api/auth/signup", {
+        firstName: FirstName,
+        lastName: LastName,
+        email: email,
+        password: Password,
+      });
+      // console.log(response);
+      // console.log("new user signed up")
+      navigate("/");
+      localStorage.setItem(`tokens`, response.data.encodedToken);
       resetFormFields();
     } catch (error) {
-      if (error.code === "auth/email-a;ready-in-use") {
-        toast.error("Cannot create user.Email already in use", {
-          autoClose: 3000,
-        });
-      } else {
-        console.error("user creation encountered an error", error);
-      }
+      console.log(error);
     }
   };
 
@@ -91,11 +109,23 @@ const Signup = () => {
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="text"
-                placeholder="Enter name"
+                placeholder="Enter first name"
                 required
                 onChange={handleChange}
-                name="displayName"
-                value={displayName}
+                name="FirstName"
+                value={FirstName}
+              />
+            </div>
+            <div className="basic-input-textboxes">
+              <label></label>
+              <input
+                className="basic-input-box inp-btn login-inp"
+                type="text"
+                placeholder="Enter last name"
+                required
+                onChange={handleChange}
+                name="LastName"
+                value={LastName}
               />
             </div>
             <div className="basic-input-textboxes">
@@ -103,13 +133,14 @@ const Signup = () => {
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="email"
-                placeholder="Enter email"
+                placeholder="Enter Email"
                 required
                 onChange={handleChange}
                 name="email"
                 value={email}
               />
             </div>
+
             <div className="basic-input-textboxes">
               <label></label>
               <input
@@ -118,24 +149,8 @@ const Signup = () => {
                 placeholder="Enter Password"
                 required
                 onChange={handleChange}
-                name="password"
-                value={password}
-              />
-            </div>
-            <div className="show-pwd">
-              <small onClick={pwdHandler}>{pwdText}</small>
-            </div>
-
-            <div className="basic-input-textboxes">
-              <label></label>
-              <input
-                className="basic-input-box inp-btn login-inp"
-                type={pwdType}
-                placeholder="Confirm Password"
-                required
-                onChange={handleChange}
-                name="confirmPassword"
-                value={confirmPassword}
+                name="Password"
+                value={Password}
               />
             </div>
             <div className="show-pwd">

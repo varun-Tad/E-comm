@@ -6,9 +6,48 @@ import { FaShoppingCart } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function ProdListingCard(props) {
   const { stateOne, dispatchOne } = useWishCart();
+  let navigate = useNavigate();
+  const navigateToCart = () => {
+    navigate("/Cart");
+  };
+  const navigateToWishList = () => {
+    navigate("/Wishlist");
+  };
+
+  const navigateToLogin = () => {
+    navigate("/Login");
+  };
+
+  const addProdToCart = async (productData) => {
+    if (localStorage.getItem("tokens")) {
+      const response = await axios({
+        method: "POST",
+        url: "/api/user/cart",
+        headers: { authorization: localStorage.getItem("tokens") },
+        data: { product: productData },
+      });
+      dispatchOne({ type: "addProToCart", payload: response.data.cart });
+    } else {
+      navigateToLogin();
+    }
+  };
+
+  const addProdToWishlist = async (productData) => {
+    if (localStorage.getItem("tokens")) {
+      const response = await axios({
+        method: "POST",
+        url: "/api/user/wishlist",
+        headers: { authorization: localStorage.getItem("tokens") },
+        data: { product: productData },
+      });
+      dispatchOne({ type: "addProToWish", payload: response.data.wishlist });
+    }
+  };
 
   return (
     <div className="card-content">
@@ -28,7 +67,7 @@ function ProdListingCard(props) {
           </p>
         </div>
         <div className="button-text-contain">
-          <button
+          {/* <button
             className="btn btn-success btns btn-one"
             onClick={() => {
               toast.success("Item added to Cart", {
@@ -38,9 +77,29 @@ function ProdListingCard(props) {
             }}
           >
             <FaShoppingCart></FaShoppingCart> Add to Cart
-          </button>
+          </button> */}
+          {stateOne.Cart.some((item) => item.id === props.prodData.id) ? (
+            <button
+              className="btn btn-success btns btn-one"
+              onClick={navigateToCart}
+            >
+              <FaShoppingCart></FaShoppingCart>Go to Cart
+            </button>
+          ) : (
+            <button
+              className="btn btn-success btns btn-one"
+              onClick={() => {
+                toast.success("Item Added from Cart", {
+                  autoClose: 3000,
+                });
+                addProdToCart(props.prodData);
+              }}
+            >
+              <FaShoppingCart></FaShoppingCart> Add to Cart
+            </button>
+          )}
 
-          <button
+          {/* <button
             className="btn btn-success btns btn-two"
             onClick={() => {
               stateOne.Wishlist.some((e) => e.id === props.prodData.id)
@@ -51,7 +110,28 @@ function ProdListingCard(props) {
             }}
           >
             <FaHeart className="heart"></FaHeart> Add to wishlist
-          </button>
+          </button> */}
+
+          {stateOne.Wishlist.some((item) => item.id === props.prodData.id) ? (
+            <button
+              className="btn btn-success btns btn-one"
+              onClick={navigateToWishList}
+            >
+              <FaHeart className="heart"></FaHeart> Go to wishlist
+            </button>
+          ) : (
+            <button
+              className="btn btn-success btns btn-one"
+              onClick={() => {
+                toast.success("Item added to Wishlist", {
+                  autoClose: 3000,
+                });
+                addProdToWishlist(props.prodData);
+              }}
+            >
+              <FaHeart className="heart"></FaHeart> Add to wishlist
+            </button>
+          )}
         </div>
       </div>
     </div>

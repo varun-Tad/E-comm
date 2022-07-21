@@ -1,17 +1,21 @@
 import React, { useContext } from "react";
 import "./Navbar.css";
 
-import { Logo, Searchbar, Navicons } from "./index";
-import { UserContext } from "../../contexts/user.context";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
-import { Link } from "react-router-dom";
+import { Logo, Navicons } from "./index";
+// import { UserContext } from "../../contexts/user.context";
+// import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
+  // const { currentUser } = useContext(UserContext);
+  let navigate = useNavigate();
 
-  const signOutHandler = async () => {
-    await signOutUser();
+  const signOutHandler = (e) => {
+    // await signOutUser();
+    e.preventDefault();
+    localStorage.removeItem("tokens");
+    navigate("/");
 
     toast.success("Logout successful", {
       autoClose: 3000,
@@ -24,7 +28,7 @@ const Navbar = () => {
         <Logo></Logo>
       </div>
       <div className="right-nav">
-        {currentUser ? (
+        {localStorage.getItem("tokens") ? (
           <button className="sign-btn" onClick={signOutHandler}>
             Sign Out
           </button>
@@ -34,9 +38,11 @@ const Navbar = () => {
           </Link>
         )}
 
-        <div className="basic-input-textboxes">
-          <Searchbar></Searchbar>
-        </div>
+        {/* <Link to="/Login">
+          <button className="sign-btn">Sign In</button>
+        </Link> */}
+
+        <div className="basic-input-textboxes"></div>
         <Navicons></Navicons>
       </div>
     </div>

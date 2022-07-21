@@ -23,7 +23,7 @@ function Cart() {
                 <div className="bill-items ">
                   <div>{ele.brand}</div>
                   <div>
-                    {ele.quantity} X ₹{ele.discountPrice}
+                    {ele.qty} X ₹{ele.discountPrice}
                   </div>
                 </div>
               ))}

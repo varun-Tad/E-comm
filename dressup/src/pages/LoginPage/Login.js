@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import {
-  signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase/firebase.utils";
+// import "react-toastify/dist/ReactToastify.css";
+// import {
+//   signInWithGooglePopup,
+//   signInAuthUserWithEmailAndPassword,
+// } from "../../utils/firebase/firebase.utils";
 import { Navbar } from "../Homepage";
 import "./Login.css";
 
@@ -17,49 +18,61 @@ const defaultFormFields = {
 const Login = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  let navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
-  const signInWithGoogle = async () => {
-    try {
-      await signInWithGooglePopup();
-      toast.success("Login successful !", {
-        autoClose: 3000,
-      });
-    } catch (err) {
-      alert(err);
-    }
-  };
+  // const signInWithGoogle = async () => {
+  //   try {
+  //     await signInWithGooglePopup();
+  //     toast.success("Login successful !", {
+  //       autoClose: 3000,
+  //     });
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // try {
+    //   const { user } = await signInAuthUserWithEmailAndPassword(
+    //     email,
+    //     password
+    //   );
+    //   resetFormFields();
+    //   toast.success("Login successful !", {
+    //     autoClose: 3000,
+    //   });
+    // } catch (error) {
+    //   switch (error.code) {
+    //     case "auth/wrong-password":
+    //       toast.error("incorrect password for email", {
+    //         autoClose: 3000,
+    //       });
+    //       break;
+    //     case "auth/user-not-found":
+    //       toast.error("no user associated with this email", {
+    //         autoClose: 3000,
+    //       });
+    //       break;
+    //     default:
+    //       console.log(error);
+    //   }
+    // }
+
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      resetFormFields();
-      toast.success("Login successful !", {
-        autoClose: 3000,
+      const response = await axios.post("/api/auth/login", {
+        email: email,
+        password: password,
       });
-    } catch (error) {
-      switch (error.code) {
-        case "auth/wrong-password":
-          toast.error("incorrect password for email", {
-            autoClose: 3000,
-          });
-          break;
-        case "auth/user-not-found":
-          toast.error("no user associated with this email", {
-            autoClose: 3000,
-          });
-          break;
-        default:
-          console.log(error);
-      }
+      localStorage.setItem("tokens", response.data.encodedToken);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -76,13 +89,13 @@ const Login = () => {
         <div className="login-containers">
           <form className="forms" onSubmit={handleSubmit}>
             <h2>Login</h2>
-            <div className="google-texts" onClick={signInWithGoogle}>
+            {/* <div className="google-texts" onClick={signInWithGoogle}>
               <img
                 src="https://img.icons8.com/color/24/000000/google-logo.png"
                 alt="google-icon"
               />
               <span>Sign in with Google</span>
-            </div>
+            </div> */}
             <small className="form-smallText">or Sign in with Email</small>
             <div className="basic-input-textboxes">
               <label for="Email"></label>

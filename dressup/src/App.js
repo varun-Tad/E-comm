@@ -2,7 +2,8 @@ import React from "react";
 import Homepage from "./pages/Homepage/Homepage";
 import Login from "./pages/LoginPage/Login";
 import Signup from "./pages/SignUpPage/Signup";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 const LazyProduct = React.lazy(() =>
@@ -46,6 +47,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<Signup />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

@@ -2,9 +2,53 @@ import React from "react";
 import "./CartDetails.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { useWishCart } from "../WishCart-context";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 function CartDetails(props) {
   const { stateOne, dispatchOne } = useWishCart();
+
+  const removeCart = async (_id) => {
+    const response = await axios({
+      method: "DELETE",
+      url: `/api/user/cart/${_id}`,
+      headers: { authorization: localStorage.getItem("tokens") },
+    });
+    dispatchOne({ type: "removeFromCart", payload: response.data.cart });
+  };
+
+  const moveToWish = async (_id, productData) => {
+    if (localStorage.getItem("tokens")) {
+      const response = await axios({
+        method: "POST",
+        url: "/api/user/wishlist",
+        headers: { authorization: localStorage.getItem("tokens") },
+        data: { product: productData },
+      });
+      dispatchOne({ type: "addProToWish", payload: response.data.wishlist });
+      removeCart(_id);
+    }
+  };
+
+  const updateQuantity = async (actionType, ele) => {
+    if (ele.qty === 1 && actionType === "decrement") {
+      removeCart(ele._id);
+    } else {
+      const response = await axios({
+        method: "POST",
+        url: `/api/user/cart/${ele._id}`,
+        headers: { authorization: localStorage.getItem("tokens") },
+        data: {
+          action: {
+            type: actionType,
+          },
+        },
+      });
+      dispatchOne({ type: "addProToCart", payload: response.data.cart });
+      console.log("Cart updated");
+    }
+  };
+
   return (
     <div>
       <div className="checkout-card">
@@ -21,38 +65,61 @@ function CartDetails(props) {
             </p>
           </div>
           <div className="quantity-btns">
-            <button
+            {/* <button
               onClick={() =>
                 dispatchOne({ type: "inc", value: props.CartData })
               }
             >
               +
+            </button> */}
+            <button onClick={() => updateQuantity("increment", props.CartData)}>
+              +
             </button>
-            <span>{props.CartData.quantity}</span>
-            <button
+            <span>{props.CartData.qty}</span>
+            <button onClick={() => updateQuantity("decrement", props.CartData)}>
+              -
+            </button>
+            {/* <button
               onClick={() =>
                 dispatchOne({ type: "dec", value: props.CartData })
               }
             >
               -
-            </button>
+            </button> */}
           </div>
           <div className="foot-btns">
-            <button
+            {/* <button
               className=" cart-btn btn btn-success btns buyNow-btn"
               onClick={() =>
                 dispatchOne({ type: "removeFromCart", value: props.CartData })
               }
             >
               <FaShoppingCart></FaShoppingCart> Remove from Cart
-            </button>
+            </button> */}
             <button
+              className=" cart-btn btn btn-success btns buyNow-btn"
+              onClick={() => {
+                toast.success("Item removed from Cart", {
+                  autoClose: 3000,
+                });
+                removeCart(props.CartData._id);
+              }}
+            >
+              <FaShoppingCart></FaShoppingCart> Remove from Cart
+            </button>
+            {/* <button
               className="cart-btn btn btn-success btns buyNow-btn"
               onClick={() => {
                 stateOne.Wishlist.some((e) => e.id === props.CartData.id)
                   ? console.log("exists")
                   : dispatchOne({ type: "moveToWish", value: props.CartData });
               }}
+            >
+              Move to wishlist{" "}
+            </button> */}
+            <button
+              className="cart-btn btn btn-success btns buyNow-btn"
+              onClick={() => moveToWish(props.CartData._id, props.CartData)}
             >
               Move to wishlist{" "}
             </button>
