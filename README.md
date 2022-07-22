@@ -21,9 +21,9 @@ Hosted Link : [DressUp](https://dressupppp.netlify.app/)
 ### Auth Login Details
 To login you can use the following credentials
 
-email : mike@gmail.com
+email :adarshbalika@gmail.com
 
-password: 12341234
+password: adarshbalika
 
 
 # Sneak Peak
