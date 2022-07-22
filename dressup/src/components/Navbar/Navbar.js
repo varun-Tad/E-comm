@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   let navigate = useNavigate();
-
   const signOutHandler = (e) => {
     e.preventDefault();
     localStorage.removeItem("tokens");

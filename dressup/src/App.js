@@ -10,7 +10,6 @@ const LazyProduct = React.lazy(() =>
   import("./pages/ProductsPage/ProductsPage")
 );
 const LazyCart = React.lazy(() => import("./pages/CartPage/Cart"));
-
 const LazyWishlist = React.lazy(() => import("./pages/WishlistPage/Wishlist"));
 
 function App() {

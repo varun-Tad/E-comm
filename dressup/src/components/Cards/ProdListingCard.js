@@ -6,11 +6,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ProdListingCard(props) {
-  const { stateOne, dispatchOne } = useWishCart();
+  const { dispatchOne, stateOne } = useWishCart();
   let navigate = useNavigate();
   const navigateToCart = () => {
     navigate("/Cart");
