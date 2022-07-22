@@ -7,6 +7,7 @@ import img3 from "../../images/handbags.jpeg";
 import img4 from "../../images/watch.jpeg";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const defaultFormFields = {
   FirstName: "",
@@ -41,7 +42,9 @@ const Signup = () => {
       localStorage.setItem(`tokens`, response.data.encodedToken);
       resetFormFields();
     } catch (error) {
-      console.log(error);
+      toast.error("Error in sign up.Try again !", {
+        autoClose: 3000,
+      });
     }
   };
 
