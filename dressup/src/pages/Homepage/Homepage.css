@@ -3,8 +3,9 @@
   overflow-y: scroll;
 }
 
-.trend-heading {
+.Home-heading {
   margin-top: 10rem;
+  margin-left: 60rem;
   text-align: center;
   font-size: 5rem;
   color: var(--color-primary);
@@ -12,8 +13,9 @@
   width: 300px;
 }
 
-.brand-heading {
+.trend-heading {
   margin-top: 10rem;
+  margin-left: 60rem;
   text-align: center;
   font-size: 5rem;
   color: var(--color-primary);
