@@ -1,6 +1,5 @@
 import React from "react";
 import { useWishCart } from "../../pages/CartPage/WishCart-context";
-
 import "./CartItemsDropdown.css";
 
 const CartItemsDropdown = () => {
