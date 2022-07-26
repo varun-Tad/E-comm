@@ -52,7 +52,7 @@ const Login = () => {
             <h2>Login</h2>
 
             <div className="basic-input-textboxes">
-              <label for="Email"></label>
+              <label htmlFor="Email"></label>
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="email"
@@ -64,7 +64,7 @@ const Login = () => {
               />
             </div>
             <div className="basic-input-textboxes">
-              <label for="Password"></label>
+              <label htmlFor="Password"></label>
               <input
                 className="basic-input-box inp-btn login-inp"
                 type="password"
@@ -75,11 +75,10 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
-
             <div className="check-box">
               <div>
                 <input type="checkbox" />
-                <label for="">Remember me</label>
+                <label hmtlFor="">Remember me</label>
               </div>
               <p>Forget Password?</p>
             </div>

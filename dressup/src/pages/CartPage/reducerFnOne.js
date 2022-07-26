@@ -5,9 +5,6 @@ const reducerFnOne = (stateOne, action) => {
         return acc + item.qty * item.discountPrice;
       }, 0);
 
-      console.log("added to Cart");
-      console.log("Cart Contents", action.payload);
-
       return {
         ...stateOne,
         CartTotal: totalPrice,

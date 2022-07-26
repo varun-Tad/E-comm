@@ -20,7 +20,7 @@ function Cart() {
             <h2>Total : ₹{stateOne.CartTotal}</h2>
             <div className="bill">
               {stateOne.Cart.map((ele) => (
-                <div className="bill-items ">
+                <div key={ele.id} className="bill-items ">
                   <div>{ele.brand}</div>
                   <div>
                     {ele.qty} X ₹{ele.discountPrice}

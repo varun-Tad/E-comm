@@ -8,8 +8,8 @@ const CartItemsDropdown = () => {
   return (
     <div>
       {stateOne.Cart.map((ele) => (
-        <div className="cart-contents-container">
-          <div className="cart-contents">
+        <div key={ele.id} className="cart-contents-container">
+          <div key={ele.id} className="cart-contents">
             <div>{ele.brand}</div>
             <div className="quantity-price">
               {ele.qty} X ${ele.discountPrice}

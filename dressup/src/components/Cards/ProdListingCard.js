@@ -9,7 +9,7 @@ import { useWishCart } from "../../pages/CartPage/WishCart-context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function ProdListingCard(props) {
+const ProdListingCard = (props) => {
   const { dispatchOne, stateOne } = useWishCart();
   let navigate = useNavigate();
   const navigateToCart = () => {
@@ -112,5 +112,5 @@ function ProdListingCard(props) {
       </div>
     </div>
   );
-}
+};
 export default ProdListingCard;

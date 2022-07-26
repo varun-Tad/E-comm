@@ -1,10 +1,8 @@
 import React from "react";
-import "./Navbar.css";
-
 import { Logo, Navicons } from "./index";
-
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "./Navbar.css";
 
 const Navbar = () => {
   let navigate = useNavigate();
