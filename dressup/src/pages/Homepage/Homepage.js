@@ -15,9 +15,9 @@ const Homepage = () => {
       <Navbar />
       <Categories />
       <HeroSection />
-      <h1 class="trend-heading">Trending</h1>
+      <h1 className="trend-heading">Trending</h1>
       <TrendingSection />
-      <h1 class="Home-heading">Explore Top Brands</h1>
+      <h1 className="Home-heading">Explore Top Brands</h1>
       <Topbrandssection />
       <div className="footer-sec">
         <Footer />
