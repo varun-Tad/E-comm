@@ -14,6 +14,8 @@ import img6 from "../../images/mens-watchOne.jpeg";
 import img7 from "../../images/MensWatch.webp";
 import img8 from "../../images/MensShirtTwo.webp";
 import img9 from "../../images/MensShirtThree.webp";
+import img10 from "../../images/Lvshirt.webp";
+import img11 from "../../images/burberry.webp";
 
 export const products = [
   {
@@ -113,6 +115,28 @@ export const products = [
     discountPrice: 2000,
     discount: 40,
     rating: 2,
+    categoryName: "Shirts",
+  },
+  {
+    _id: uuid(),
+    id: 10,
+    imgSrc: img10,
+    brand: "LV SPREAD EMBROIDERY T-SHIRT",
+    actualPrice: 4000,
+    discountPrice: 3500,
+    discount: 20,
+    rating: 4,
+    categoryName: "Shirts",
+  },
+  {
+    _id: uuid(),
+    id: 11,
+    imgSrc: img11,
+    brand: "Check Cotton Poplin Shirt",
+    actualPrice: 3000,
+    discountPrice: 2800,
+    discount: 10,
+    rating: 5,
     categoryName: "Shirts",
   },
 ];

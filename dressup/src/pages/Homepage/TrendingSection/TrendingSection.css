@@ -5,3 +5,10 @@
   align-items: center;
   column-gap: 10rem;
 }
+
+@media (max-width: 1500px) {
+  .trending-section {
+    display: block;
+    margin-left: 50rem;
+  }
+}
