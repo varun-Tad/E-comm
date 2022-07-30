@@ -19,6 +19,25 @@ const Login = () => {
     setFormFields(defaultFormFields);
   };
 
+  const handleGuestLogin = async () => {
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email: "adarshbalika@gmail.com",
+        password: "adarshbalika",
+      });
+      localStorage.setItem("tokens", response.data.encodedToken);
+      resetFormFields();
+      navigate("/");
+      toast.success("Login successful !", {
+        autoClose: 3000,
+      });
+    } catch (err) {
+      toast.error("Error in login.Try again !", {
+        autoClose: 3000,
+      });
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -30,6 +49,9 @@ const Login = () => {
       localStorage.setItem("tokens", response.data.encodedToken);
       resetFormFields();
       navigate("/");
+      toast.success("Login successful !", {
+        autoClose: 3000,
+      });
     } catch (err) {
       toast.error("Error in login.Try again !", {
         autoClose: 3000,
@@ -84,6 +106,13 @@ const Login = () => {
             </div>
             <button type="submit" className="btn btn-secondary btns">
               Login
+            </button>
+            <button
+              type="button"
+              onClick={handleGuestLogin}
+              className="btn btn-secondary btns"
+            >
+              Login as Guest
             </button>
             <p className="signUp-para">
               Don't have an account? <Link to="/Signup">Sign up</Link>
