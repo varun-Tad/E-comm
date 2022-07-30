@@ -7,6 +7,7 @@ import axios from "axios";
 
 function CartDetails(props) {
   const { dispatchOne } = useWishCart();
+  let wishlistItemExists = false;
 
   const removeCart = async (_id) => {
     const response = await axios({
@@ -18,15 +19,33 @@ function CartDetails(props) {
   };
 
   const moveToWish = async (_id, productData) => {
+    wishlistItemExists = false;
     if (localStorage.getItem("tokens")) {
-      const response = await axios({
-        method: "POST",
+      const Wishlistresponse = await axios({
+        method: "GET",
         url: "/api/user/wishlist",
         headers: { authorization: localStorage.getItem("tokens") },
-        data: { product: productData },
       });
-      dispatchOne({ type: "addProToWish", payload: response.data.wishlist });
-      removeCart(_id);
+
+      if (
+        Wishlistresponse.data.wishlist.some(
+          (item) => item.id === productData.id
+        )
+      ) {
+        wishlistItemExists = true;
+        toast.error("Item already exists in wishlist", {
+          autoClose: 3000,
+        });
+      } else {
+        const response = await axios({
+          method: "POST",
+          url: "/api/user/wishlist",
+          headers: { authorization: localStorage.getItem("tokens") },
+          data: { product: productData },
+        });
+        dispatchOne({ type: "addProToWish", payload: response.data.wishlist });
+        removeCart(_id);
+      }
     }
   };
 
@@ -45,7 +64,6 @@ function CartDetails(props) {
         },
       });
       dispatchOne({ type: "addProToCart", payload: response.data.cart });
-      console.log("Cart updated");
     }
   };
 

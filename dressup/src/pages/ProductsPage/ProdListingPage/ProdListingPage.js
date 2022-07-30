@@ -1,7 +1,7 @@
-import "./ProdListingPage.css";
 import ProdListingCard from "../../../components/Cards/ProdListingCard";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./ProdListingPage.css";
 
 import {
   sortProductList,

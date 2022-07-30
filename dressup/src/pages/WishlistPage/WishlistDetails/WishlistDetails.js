@@ -10,6 +10,7 @@ import React from "react";
 
 function WishlistDetails(props) {
   const { dispatchOne } = useWishCart();
+  let cartItemExists = false;
 
   const removeWish = async (_id) => {
     const response = await axios({
@@ -20,16 +21,46 @@ function WishlistDetails(props) {
     dispatchOne({ type: "removeFromWish", payload: response.data.wishlist });
   };
 
-  const moveCart = async (_id, productData) => {
-    if (localStorage.getItem("tokens")) {
+  const updateQuantity = async (actionType, productData) => {
+    if (actionType === "increment") {
       const response = await axios({
         method: "POST",
-        url: "/api/user/cart",
+        url: `/api/user/cart/${productData._id}`,
         headers: { authorization: localStorage.getItem("tokens") },
-        data: { product: productData },
+        data: {
+          action: {
+            type: actionType,
+          },
+        },
       });
       dispatchOne({ type: "addProToCart", payload: response.data.cart });
-      removeWish(_id);
+    }
+  };
+
+  const moveCart = async (_id, productData) => {
+    cartItemExists = false;
+    if (localStorage.getItem("tokens")) {
+      const Cartresponse = await axios({
+        method: "GET",
+        url: "/api/user/cart",
+        headers: { authorization: localStorage.getItem("tokens") },
+      });
+
+      if (Cartresponse.data.cart.some((ele) => ele.id === productData.id)) {
+        cartItemExists = true;
+      } else {
+        const response = await axios({
+          method: "POST",
+          url: "/api/user/cart",
+          headers: { authorization: localStorage.getItem("tokens") },
+          data: { product: productData },
+        });
+        dispatchOne({ type: "addProToCart", payload: response.data.cart });
+      }
+
+      if (cartItemExists) {
+        updateQuantity("increment", productData);
+      }
     }
   };
 
