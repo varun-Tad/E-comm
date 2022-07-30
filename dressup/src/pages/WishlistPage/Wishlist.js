@@ -10,7 +10,7 @@ function Wishlist() {
   return (
     <div className="WishlistPageBody">
       <Navbar />
-      <h1>
+      <h1 className="wishlist-title">
         Your WishList({stateOne.WishListItems}) <FaHeart />
       </h1>
       {stateOne.WishListItems === 0 ? (

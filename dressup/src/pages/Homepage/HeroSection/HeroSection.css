@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.heroSection-title {
+  margin-top: 21rem;
+}
+
 .main-img {
   width: 130rem;
   height: 70rem;

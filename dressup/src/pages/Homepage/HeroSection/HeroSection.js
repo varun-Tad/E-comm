@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <div className="main">
       <div className="main-text">
-        <h1>
+        <h1 className="heroSection-title">
           <span class="highlight">Dress Up</span> for every{" "}
           <span class="highlight">Occasion</span>
         </h1>
