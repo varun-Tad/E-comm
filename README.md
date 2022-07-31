@@ -2,7 +2,7 @@
 
 This is a fully functional E-commerce web app  built using React and [mockbee](https://mockbee.netlify.app/) containing the below features
 
-Hosted Link : [DressUp](https://dressuppppp.netlify.app/)
+Hosted Link : [DressUp](https://dressup-ecom.netlify.app/)
 
 - Home Page
 - Product listing page
