@@ -1,5 +1,5 @@
-import { createContext, useReducer, useContext } from "react";
 import React from "react";
+import { createContext, useReducer, useContext } from "react";
 import { reducerFn } from "./reducerFn";
 
 const ProductContext = createContext();
@@ -8,7 +8,7 @@ const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducerFn, {
     sortOrder: null,
     rating: null,
-    theValue: 50000,
+    theValue: 20000,
     categories: {
       Shirts: false,
       Pants: false,

@@ -97,13 +97,6 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="check-box">
-              <div>
-                <input type="checkbox" />
-                <label hmtlFor="">Remember me</label>
-              </div>
-              <p>Forget Password?</p>
-            </div>
             <button type="submit" className="btn btn-secondary btns">
               Login
             </button>

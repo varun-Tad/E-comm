@@ -78,19 +78,6 @@
   content: "_____________";
 }
 
-.check-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-  padding-right: 8rem;
-}
-
-.check-box p {
-  cursor: pointer;
-  margin-bottom: 2rem;
-}
-
 .badge-portion:hover {
   background-color: var(--color-primary-opacity);
 }

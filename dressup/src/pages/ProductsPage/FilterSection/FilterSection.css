@@ -104,3 +104,8 @@
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+.slider-value {
+  margin-left: 10rem;
+  font-weight: 600;
+}

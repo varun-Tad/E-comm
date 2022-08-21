@@ -8,8 +8,8 @@ const HeroSection = () => {
     <div className="main">
       <div className="main-text">
         <h1 className="heroSection-title">
-          <span class="highlight">Dress Up</span> for every{" "}
-          <span class="highlight">Occasion</span>
+          <span className="highlight">Dress Up</span> for every{" "}
+          <span className="highlight">Occasion</span>
         </h1>
         <HeroSectionbutton></HeroSectionbutton>
       </div>

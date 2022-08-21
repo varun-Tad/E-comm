@@ -93,7 +93,7 @@ function WishlistDetails(props) {
               <FaShoppingCart /> Move to Cart
             </button>
             <button
-              className="btn btn-success btns btn-two"
+              className="btn btn-success btns btn-two rm-btn"
               onClick={() => {
                 toast.success("Item removed from Wishlist", {
                   autoClose: 3000,

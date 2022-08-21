@@ -24,14 +24,14 @@ function Navicons() {
         <FaRegHeart
           onClick={wishListClick}
           className="navicon-color"
-          size={28}
+          size={50}
         ></FaRegHeart>
       </div>
       <div class="badge-portion">
         <FaShoppingCart
           onClick={toggleCart}
           className="navicon-color"
-          size={28}
+          size={50}
         ></FaShoppingCart>
       </div>
       {isCartOpen && <CartDropdown />}

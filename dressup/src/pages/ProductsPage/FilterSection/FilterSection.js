@@ -8,7 +8,6 @@ const FilterSection = () => {
     <aside className="filter-section">
       <div className="filter-header">
         <h3>Filter</h3>
-        <h4>Clear All</h4>
       </div>
       <div className="border"></div>
       <p className="priceRange-header">PRICE RANGE</p>
@@ -23,6 +22,7 @@ const FilterSection = () => {
             dispatch({ type: "Range", value: e.target.value });
           }}
         ></input>
+        <p className="slider-value">₹ {state.theValue}</p>
       </div>
       <div className="border"></div>
       <div className="sort-price">
